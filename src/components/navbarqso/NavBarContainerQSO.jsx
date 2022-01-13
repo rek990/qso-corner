@@ -1,5 +1,5 @@
 import React from "react";
-import { HStack, Flex } from "@chakra-ui/react";
+import { HStack, Flex, Spacer } from "@chakra-ui/react";
 // import { Link } from "react-router-dom";
 import NavBarHeaderQSO from "./NavBarHeaderQSO";
 import NavBarLinksMenuQSO from "./NavBarLinksMenuQSO";
@@ -13,20 +13,22 @@ const NavBarContainerQSO = () => {
     <>
       <Flex
         width="100%"
-        height="48px"
+        height="7vh"
         position="absolute"
-        top="0px"
+        top="0vh"
         bg="#AACFDD"
         style={{ boxShadow: "0px 4px 4px rgba(0, 0, 0, 0.25)" }}
         flexWrap="wrap"
         margin="auto"
       >
-        <HStack spacing={8}>
+        <Flex direction="row" width="100%" alignItems="center">
           <NavBarImg />
           <NavBarHeaderQSO />
+          <Spacer />
           <NavBarLinksMenuQSO />
+          <Spacer />
           <UserDropdownMenuQSO />
-        </HStack>
+        </Flex>
       </Flex>
     </>
   );

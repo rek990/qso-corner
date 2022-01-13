@@ -7,12 +7,13 @@ import { Box, Flex, Image, chakra } from "@chakra-ui/react";
 import NavBarContainerQSO from "./components/navbarqso/NavBarContainerQSO";
 import QSORoutes from "./components/QSORoutes";
 import ErrorAlertQSO from "./components/alerts/ErrorAlertQSO";
+import Logo from "./IMG_2755.JPG";
 
 const App = () => {
   const [currentUser, setCurrentUser] = useState({});
   const [dataError, setDataError] = useState(false);
   const [authenticated, setAuthenticated] = useState(false);
-  const imageFilePath = "./IMG_2755.PNG";
+  //const imageFilePath = "./IMG_2755.JPG";
   // The following useEffect() will be added once the backend is set up. Once set up, it should retrieve the value of the "refresh_token" key that is saved to the browser when the component renders for the first time.
 
   /*
@@ -23,8 +24,8 @@ const App = () => {
     */
 
   return (
-    <Flex className="App" height="100%" bg="#356288" justifyContent="center" alignItems="center">
-      <span>QSO Corner</span>
+    <Flex className="App" height="100%" width="100%" justifyContent="center" alignItems="center">
+      <Image src={Logo} fit="fill" />
       <NavBarContainerQSO currentUser={currentUser} setCurrentUser={setCurrentUser} />
       <chakra.main>
         {dataError ? <ErrorAlertQSO /> : null}

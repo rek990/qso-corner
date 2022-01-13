@@ -1,5 +1,5 @@
 import React from "react";
-import { Flex, HStack, Link, Spacer } from "@chakra-ui/react";
+import { HStack, Link, Spacer, Flex } from "@chakra-ui/react";
 
 const NavBarLinksMenuQSO = () => {
   return (

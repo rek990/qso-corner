@@ -5,8 +5,8 @@ import { Box, Flex, Image, chakra } from "@chakra-ui/react";
 //import "./App.css"; // most likely to be removed to style with Chakra UI instead
 // import LoginFormQSO from "../src/components/authentication/LoginFormQSO";
 import NavBarContainerQSO from "./components/navbarqso/NavBarContainerQSO";
-// import QSORoutes from "./components/QSORoutes";
-// import ErrorAlertQSO from "./components/alerts/ErrorAlertQSO";
+import QSORoutes from "./components/QSORoutes";
+import ErrorAlertQSO from "./components/alerts/ErrorAlertQSO";
 
 const App = () => {
   const [currentUser, setCurrentUser] = useState({});
@@ -26,10 +26,10 @@ const App = () => {
     <Flex className="App" height="100%" bg="#356288" justifyContent="center" alignItems="center">
       <span>QSO Corner</span>
       <NavBarContainerQSO currentUser={currentUser} setCurrentUser={setCurrentUser} />
-      {/*<chakra.main>
-          {dataError ? <ErrorAlertQSO /> : null}
-          <QSORoutes setDataError={setDataError} />
-          </chakra.main>*/}
+      <chakra.main>
+        {dataError ? <ErrorAlertQSO /> : null}
+        <QSORoutes setDataError={setDataError} />
+      </chakra.main>
     </Flex>
   );
 };

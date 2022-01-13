@@ -13,7 +13,6 @@ const NavBarLogo = (props) => {
         id="navbar-branding-logo"
         fit="fill"
         marginLeft="0.5em"
-        marginBottom="0.5em"
         marginRight="0.5em"
         paddingTop="0.5em"
         paddingBottom="0.5em"

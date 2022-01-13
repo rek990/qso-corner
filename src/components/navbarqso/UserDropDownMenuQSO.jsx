@@ -15,6 +15,7 @@ const UserDropdownMenu = (props) => {
           as={Button}
           marginRight="0.5rem"
           bg="#FE1100"
+          color="#AACFDD"
           _hover={{ bg: "#356288" }}
           _expanded={{ bg: "#356288" }}
           _active={{ bg: "#356288" }}

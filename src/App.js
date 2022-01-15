@@ -8,6 +8,7 @@ import NavBarContainerQSO from "./components/navbarqso/NavBarContainerQSO";
 import QSORoutes from "./components/QSORoutes";
 import ErrorAlertQSO from "./components/alerts/ErrorAlertQSO";
 import Logo from "./IMG_2755.JPG";
+//import Logo from "../src/images/IMG_2755.PNG";
 
 const App = () => {
   const [currentUser, setCurrentUser] = useState({});
@@ -24,13 +25,11 @@ const App = () => {
     */
 
   return (
-    <Flex className="App" height="100%" width="100%" justifyContent="center" alignItems="center">
-      <Image src={Logo} fit="fill" />
+    <Flex className="App" height="100%" width="100%" alignItems="center" justifyContent="center">
       <NavBarContainerQSO currentUser={currentUser} setCurrentUser={setCurrentUser} />
-      <chakra.main>
-        {dataError ? <ErrorAlertQSO /> : null}
-        <QSORoutes setDataError={setDataError} />
-      </chakra.main>
+      {dataError ? <ErrorAlertQSO /> : null}
+      <QSORoutes setDataError={setDataError} />
+      <Image src={Logo} fit="fill" zIndex={-1} />
     </Flex>
   );
 };

@@ -20,7 +20,9 @@ const LogbookContainer = (props) => {
           </Heading>
         </Flex>
         <Spacer />
-        <LogbookTable />
+        <Flex>
+          <LogbookTable />
+        </Flex>
       </VStack>
     </Flex>
   );

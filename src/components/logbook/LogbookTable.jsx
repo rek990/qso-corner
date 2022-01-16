@@ -200,7 +200,7 @@ const LogbookTable = () => {
           {/*<GlobalFilter filter={globalFilter} setFilter={setGlobalFilter} />*/}
         </Flex>
         <TableScrollbar>
-          <Table className="table" variant="striped" {...getTableProps()}>
+          <Table className="table" bg="#AACFDD" variant="striped" {...getTableProps()}>
             <Thead>
               {headerGroups.map((headerGroup) => (
                 <Tr {...headerGroup.getHeaderGroupProps()}>
@@ -295,7 +295,7 @@ const LogbookTable = () => {
               type="number"
               border="1px solid"
               borderColor="#E2E8F0"
-              bg="white"
+              bg="#AACFDD"
               borderRadius="6px"
               width={{ base: "75vw", sm: "50vw", md: "30vw", lg: "20vw" }}
               focusBorderColor="teal.500"
@@ -314,7 +314,7 @@ const LogbookTable = () => {
               value={pageSize}
               border="1px solid"
               borderColor="#E2E8F0"
-              bg="white"
+              bg="#AACFDD"
               width={{ base: "75vw", sm: "50vw", md: "30vw", lg: "20vw" }}
               focusBorderColor="teal.500"
               errorBorderColor="red.400"

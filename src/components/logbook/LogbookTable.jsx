@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useMemo } from "react";
 import TableScrollbar from "react-table-scrollbar";
 import {
   Button,
@@ -35,132 +35,138 @@ import {
   useRowSelect,
 } from "react-table";
 
-//import GlobalFilter from "./GlobalFilter";
+import GlobalFilter from "./GlobalFilter";
 // when backend is set up, pass { columns, data } as props
 const LogbookTable = () => {
-  const columns = [
-    {
-      Header: "No.",
-      accessor: "qsoNumber",
-      minWidth: 30,
-      width: 150,
-      maxWidth: 200,
-    },
-    {
-      Header: "Call Sign",
-      accessor: "callSign",
-      minWidth: 30,
-      width: 150,
-      maxWidth: 200,
-    },
-    {
-      Header: "Operator Name",
-      accessor: "operatorName",
-      minWidth: 30,
-      width: 150,
-      maxWidth: 200,
-    },
-    {
-      Header: "Country",
-      accessor: "country",
-      minWidth: 30,
-      width: 150,
-      maxWidth: 200,
-    },
-    {
-      Header: "Date",
-      accessor: "qsoDate",
-      minWidth: 30,
-      width: 150,
-      maxWidth: 200,
-    },
-    {
-      Header: "Time (UTC)",
-      accessor: "qsoTime",
-      minWidth: 30,
-      width: 150,
-      maxWidth: 200,
-    },
-    {
-      Header: "Frequency",
-      accessor: "frequency",
-      minWidth: 30,
-      width: 150,
-      maxWidth: 200,
-    },
-    {
-      Header: "Mode",
-      accessor: "mode",
-      minWidth: 30,
-      width: 150,
-      maxWidth: 200,
-    },
-    {
-      Header: "Notes",
-      accessor: "notes",
-      minWidth: 30,
-      width: 150,
-      maxWidth: 200,
-    },
-  ];
+  const columns = useMemo(
+    () => [
+      {
+        Header: "No.",
+        accessor: "qsoNumber",
+        minWidth: 30,
+        width: 150,
+        maxWidth: 200,
+      },
+      {
+        Header: "Call Sign",
+        accessor: "callSign",
+        minWidth: 30,
+        width: 150,
+        maxWidth: 200,
+      },
+      {
+        Header: "Operator Name",
+        accessor: "operatorName",
+        minWidth: 30,
+        width: 150,
+        maxWidth: 200,
+      },
+      {
+        Header: "Country",
+        accessor: "country",
+        minWidth: 30,
+        width: 150,
+        maxWidth: 200,
+      },
+      {
+        Header: "Date",
+        accessor: "qsoDate",
+        minWidth: 30,
+        width: 150,
+        maxWidth: 200,
+      },
+      {
+        Header: "Time (UTC)",
+        accessor: "qsoTime",
+        minWidth: 30,
+        width: 150,
+        maxWidth: 200,
+      },
+      {
+        Header: "Frequency",
+        accessor: "frequency",
+        minWidth: 30,
+        width: 150,
+        maxWidth: 200,
+      },
+      {
+        Header: "Mode",
+        accessor: "mode",
+        minWidth: 30,
+        width: 150,
+        maxWidth: 200,
+      },
+      {
+        Header: "Notes",
+        accessor: "notes",
+        minWidth: 30,
+        width: 150,
+        maxWidth: 200,
+      },
+    ],
+    [],
+  );
 
-  const data = [
-    {
-      qsoNumber: 1,
-      callSign: "W4GI",
-      operatorName: "JBW",
-      country: "USA",
-      qsoDate: "2021-12-31",
-      qsoTime: "18:20",
-      frequency: "7.194 Hz",
-      mode: "SSB",
-      notes: "",
-    },
-    {
-      qsoNumber: 2,
-      callSign: "KO4LIT",
-      operatorName: "DD",
-      country: "USA",
-      qsoDate: "2021-12-31",
-      qsoTime: "18:20",
-      frequency: "7.194 Hz",
-      mode: "SSB",
-      notes: "",
-    },
-    {
-      qsoNumber: 3,
-      callSign: "W4NQX",
-      operatorName: "VFC",
-      country: "USA",
-      qsoDate: "2021-12-31",
-      qsoTime: "17:52",
-      frequency: "7.294 Hz",
-      mode: "SSB",
-      notes: "",
-    },
-    {
-      qsoNumber: 4,
-      callSign: "AE1JS",
-      operatorName: "JWS",
-      country: "USA",
-      qsoDate: "2021-02-20",
-      qsoTime: "23:48",
-      frequency: "146.52 Hz",
-      mode: "FM",
-      notes: "",
-    },
-    {
-      qsoNumber: 5,
-      callSign: "AE1MS",
-      operatorName: "MHS",
-      country: "USA",
-      qsoDate: "2021-02-20",
-      qsoTime: "23:45",
-      frequency: "146.52 Hz",
-      mode: "FM",
-      notes: "",
-    },
-  ];
+  const data = useMemo(
+    () => [
+      {
+        qsoNumber: 1,
+        callSign: "W4GI",
+        operatorName: "JBW",
+        country: "USA",
+        qsoDate: "2021-12-31",
+        qsoTime: "18:20",
+        frequency: "7.194 Hz",
+        mode: "SSB",
+        notes: "",
+      },
+      {
+        qsoNumber: 2,
+        callSign: "KO4LIT",
+        operatorName: "DD",
+        country: "USA",
+        qsoDate: "2021-12-31",
+        qsoTime: "18:20",
+        frequency: "7.194 Hz",
+        mode: "SSB",
+        notes: "",
+      },
+      {
+        qsoNumber: 3,
+        callSign: "W4NQX",
+        operatorName: "VFC",
+        country: "USA",
+        qsoDate: "2021-12-31",
+        qsoTime: "17:52",
+        frequency: "7.294 Hz",
+        mode: "SSB",
+        notes: "",
+      },
+      {
+        qsoNumber: 4,
+        callSign: "AE1JS",
+        operatorName: "JWS",
+        country: "USA",
+        qsoDate: "2021-02-20",
+        qsoTime: "23:48",
+        frequency: "146.52 Hz",
+        mode: "FM",
+        notes: "",
+      },
+      {
+        qsoNumber: 5,
+        callSign: "AE1MS",
+        operatorName: "MHS",
+        country: "USA",
+        qsoDate: "2021-02-20",
+        qsoTime: "23:45",
+        frequency: "146.52 Hz",
+        mode: "FM",
+        notes: "",
+      },
+    ],
+    [],
+  );
 
   const {
     getTableProps,
@@ -197,7 +203,7 @@ const LogbookTable = () => {
     <>
       <Flex direction="column" width="75vw" justifyContent="center">
         <Flex justifyContent="center">
-          {/*<GlobalFilter filter={globalFilter} setFilter={setGlobalFilter} />*/}
+          <GlobalFilter filter={globalFilter} setFilter={setGlobalFilter} />
         </Flex>
         <TableScrollbar>
           <Table className="table" bg="#AACFDD" variant="striped" {...getTableProps()}>

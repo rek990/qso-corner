@@ -5,6 +5,7 @@ const GlobalFilter = ({ filter, setFilter }) => {
   return (
     <>
       <Input
+        color="black"
         border="1px solid"
         borderColor="#356288"
         borderRadius="15px"

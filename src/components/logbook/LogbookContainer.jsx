@@ -10,12 +10,12 @@ const LogbookContainer = (props) => {
         <Flex
           width="30vw"
           height="7vh"
-          bg="#356288"
+          bg="#FE875D"
           borderRadius="15px"
           justifyContent="center"
           alignItems="center"
         >
-          <Heading size="lg" color="#AACFDD">
+          <Heading size="lg" color="#356288">
             QSO Corner
           </Heading>
         </Flex>

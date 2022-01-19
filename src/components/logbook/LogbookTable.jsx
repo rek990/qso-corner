@@ -38,6 +38,67 @@ import {
 import GlobalFilter from "./GlobalFilter";
 // when backend is set up, pass { columns, data } as props
 const LogbookTable = () => {
+  const data = useMemo(
+    () => [
+      {
+        qsoNumber: 1,
+        callSign: "W4GI",
+        operatorName: "JBW",
+        country: "USA",
+        qsoDate: "2021-12-31",
+        qsoTime: "18:20",
+        frequency: "7.194 Hz",
+        mode: "SSB",
+        notes: "",
+      },
+      {
+        qsoNumber: 2,
+        callSign: "KO4LIT",
+        operatorName: "DD",
+        country: "USA",
+        qsoDate: "2021-12-31",
+        qsoTime: "18:20",
+        frequency: "7.194 Hz",
+        mode: "SSB",
+        notes: "",
+      },
+      {
+        qsoNumber: 3,
+        callSign: "W4NQX",
+        operatorName: "VFC",
+        country: "USA",
+        qsoDate: "2021-12-31",
+        qsoTime: "17:52",
+        frequency: "7.294 Hz",
+        mode: "SSB",
+        notes: "",
+      },
+      {
+        qsoNumber: 4,
+        callSign: "AE1JS",
+        operatorName: "JWS",
+        country: "USA",
+        qsoDate: "2021-02-20",
+        qsoTime: "23:48",
+        frequency: "146.52 Hz",
+        mode: "FM",
+        notes: "",
+      },
+      {
+        qsoNumber: 5,
+        callSign: "AE1MS",
+        operatorName: "MHS",
+        country: "USA",
+        qsoDate: "2021-02-20",
+        qsoTime: "23:45",
+        frequency: "146.52 Hz",
+        mode: "FM",
+        notes: "",
+      },
+    ],
+    [],
+  );
+
   const columns = useMemo(
     () => [
       {
@@ -102,67 +163,6 @@ const LogbookTable = () => {
         minWidth: 30,
         width: 150,
         maxWidth: 200,
-      },
-    ],
-    [],
-  );
-
-  const data = useMemo(
-    () => [
-      {
-        qsoNumber: 1,
-        callSign: "W4GI",
-        operatorName: "JBW",
-        country: "USA",
-        qsoDate: "2021-12-31",
-        qsoTime: "18:20",
-        frequency: "7.194 Hz",
-        mode: "SSB",
-        notes: "",
-      },
-      {
-        qsoNumber: 2,
-        callSign: "KO4LIT",
-        operatorName: "DD",
-        country: "USA",
-        qsoDate: "2021-12-31",
-        qsoTime: "18:20",
-        frequency: "7.194 Hz",
-        mode: "SSB",
-        notes: "",
-      },
-      {
-        qsoNumber: 3,
-        callSign: "W4NQX",
-        operatorName: "VFC",
-        country: "USA",
-        qsoDate: "2021-12-31",
-        qsoTime: "17:52",
-        frequency: "7.294 Hz",
-        mode: "SSB",
-        notes: "",
-      },
-      {
-        qsoNumber: 4,
-        callSign: "AE1JS",
-        operatorName: "JWS",
-        country: "USA",
-        qsoDate: "2021-02-20",
-        qsoTime: "23:48",
-        frequency: "146.52 Hz",
-        mode: "FM",
-        notes: "",
-      },
-      {
-        qsoNumber: 5,
-        callSign: "AE1MS",
-        operatorName: "MHS",
-        country: "USA",
-        qsoDate: "2021-02-20",
-        qsoTime: "23:45",
-        frequency: "146.52 Hz",
-        mode: "FM",
-        notes: "",
       },
     ],
     [],
@@ -248,7 +248,7 @@ const LogbookTable = () => {
           <HStack spacing={1}>
             <Button
               size="xs"
-              bg="teal.500"
+              bg="#FE875D"
               color="white"
               borderRadius="6px"
               className="page-item"
@@ -259,7 +259,7 @@ const LogbookTable = () => {
             </Button>
             <Button
               size="xs"
-              bg="teal.500"
+              bg="#FE875D"
               color="white"
               borderRadius="6px"
               onClick={() => previousPage()}
@@ -269,7 +269,7 @@ const LogbookTable = () => {
             </Button>
             <Button
               size="xs"
-              bg="teal.500"
+              bg="#FE875D"
               color="white"
               borderRadius="6px"
               onClick={() => nextPage()}
@@ -279,7 +279,7 @@ const LogbookTable = () => {
             </Button>
             <Button
               size="xs"
-              bg="teal.500"
+              bg="#FE875D"
               color="white"
               borderRadius="6px"
               className="page-item"
@@ -290,7 +290,7 @@ const LogbookTable = () => {
             </Button>
           </HStack>
           <Spacer />
-          <Text>
+          <Text color="white">
             Page <b>{pageIndex + 1}</b> of <b>{pageOptions.length}</b>
           </Text>
         </Flex>
@@ -338,7 +338,7 @@ const LogbookTable = () => {
           </Flex>
 
           <Flex width="100%" justifyContent="center">
-            <Text>
+            <Text color="white">
               Showing the First {pageSize} Results of {rows.length} Results
             </Text>
           </Flex>

@@ -7,6 +7,7 @@ const LogbookContainer = (props) => {
   return (
     <Flex direction="row" width="100%">
       <VStack>
+        <Spacer />
         <Flex
           width="30vw"
           height="7vh"
@@ -19,10 +20,7 @@ const LogbookContainer = (props) => {
             QSO Corner
           </Heading>
         </Flex>
-        <Spacer />
-        <Flex>
-          <LogbookTable />
-        </Flex>
+        <LogbookTable />
       </VStack>
     </Flex>
   );

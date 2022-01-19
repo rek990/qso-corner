@@ -47,7 +47,7 @@ const LogbookTable = () => {
         country: "USA",
         qsoDate: "2021-12-31",
         qsoTime: "18:20",
-        frequency: "7.194 Hz",
+        frequency: "7.194",
         mode: "SSB",
         notes: "",
       },
@@ -58,7 +58,7 @@ const LogbookTable = () => {
         country: "USA",
         qsoDate: "2021-12-31",
         qsoTime: "18:20",
-        frequency: "7.194 Hz",
+        frequency: "7.194",
         mode: "SSB",
         notes: "",
       },
@@ -69,7 +69,7 @@ const LogbookTable = () => {
         country: "USA",
         qsoDate: "2021-12-31",
         qsoTime: "17:52",
-        frequency: "7.294 Hz",
+        frequency: "7.294",
         mode: "SSB",
         notes: "",
       },
@@ -80,7 +80,7 @@ const LogbookTable = () => {
         country: "USA",
         qsoDate: "2021-02-20",
         qsoTime: "23:48",
-        frequency: "146.52 Hz",
+        frequency: "146.52",
         mode: "FM",
         notes: "",
       },
@@ -91,7 +91,7 @@ const LogbookTable = () => {
         country: "USA",
         qsoDate: "2021-02-20",
         qsoTime: "23:45",
-        frequency: "146.52 Hz",
+        frequency: "146.52",
         mode: "FM",
         notes: "",
       },
@@ -105,56 +105,56 @@ const LogbookTable = () => {
         Header: "No.",
         accessor: "qsoNumber",
         minWidth: 30,
-        width: 150,
+        width: 75,
         maxWidth: 200,
       },
       {
         Header: "Call Sign",
         accessor: "callSign",
         minWidth: 30,
-        width: 150,
+        width: 125,
         maxWidth: 200,
       },
       {
         Header: "Operator Name",
         accessor: "operatorName",
         minWidth: 30,
-        width: 150,
+        width: 125,
         maxWidth: 200,
       },
       {
         Header: "Country",
         accessor: "country",
         minWidth: 30,
-        width: 150,
+        width: 125,
         maxWidth: 200,
       },
       {
         Header: "Date",
         accessor: "qsoDate",
         minWidth: 30,
-        width: 150,
+        width: 130,
         maxWidth: 200,
       },
       {
         Header: "Time (UTC)",
         accessor: "qsoTime",
         minWidth: 30,
-        width: 150,
+        width: 125,
         maxWidth: 200,
       },
       {
-        Header: "Frequency",
+        Header: "Freq. (MHz)",
         accessor: "frequency",
         minWidth: 30,
-        width: 150,
+        width: 130,
         maxWidth: 200,
       },
       {
         Header: "Mode",
         accessor: "mode",
         minWidth: 30,
-        width: 150,
+        width: 100,
         maxWidth: 200,
       },
       {
@@ -201,10 +201,11 @@ const LogbookTable = () => {
 
   return (
     <>
-      <Flex direction="column" width="75vw" justifyContent="center">
+      <Flex direction="column" width="75vw" paddingLeft="2em" paddingRight="2em">
         <Flex justifyContent="center">
           <GlobalFilter filter={globalFilter} setFilter={setGlobalFilter} />
         </Flex>
+        <br />
         <TableScrollbar>
           <Table className="table" bg="#AACFDD" variant="striped" {...getTableProps()}>
             <Thead>
@@ -243,7 +244,6 @@ const LogbookTable = () => {
             </Tbody>
           </Table>
         </TableScrollbar>
-        <Spacer />
         <Flex>
           <HStack spacing={1}>
             <Button
@@ -297,44 +297,46 @@ const LogbookTable = () => {
         <Spacer />
         <VStack>
           <Flex direction={{ base: "column", md: "row" }}>
-            <Input
-              type="number"
-              border="1px solid"
-              borderColor="#E2E8F0"
-              bg="#AACFDD"
-              borderRadius="6px"
-              width={{ base: "75vw", sm: "50vw", md: "30vw", lg: "20vw" }}
-              focusBorderColor="teal.500"
-              errorBorderColor="red.400"
-              placeholder="Go to Page"
-              size="sm"
-              onChange={(e) => {
-                const page = e.target.value ? Number(e.target.value) - 1 : 0;
-                gotoPage(page);
-              }}
-            />
-            <Spacer />
-            <Select
-              className="form-control"
-              size="sm"
-              value={pageSize}
-              border="1px solid"
-              borderColor="#E2E8F0"
-              bg="#AACFDD"
-              width={{ base: "75vw", sm: "50vw", md: "30vw", lg: "20vw" }}
-              focusBorderColor="teal.500"
-              errorBorderColor="red.400"
-              borderRadius="6px"
-              onChange={(e) => {
-                setPageSize(Number(e.target.value));
-              }}
-            >
-              {[5, 10, 20, 30, 40, 50].map((pageSize) => (
-                <option key={pageSize} value={pageSize}>
-                  Show {pageSize} Results Per Page
-                </option>
-              ))}
-            </Select>
+            <HStack spacing={3}>
+              <Input
+                type="number"
+                border="2px solid"
+                borderColor="#FE875D"
+                bg="#AACFDD"
+                borderRadius="6px"
+                width={{ base: "75vw", sm: "50vw", md: "30vw", lg: "20vw" }}
+                focusBorderColor="teal.500"
+                errorBorderColor="red.400"
+                placeholder="Go to Page"
+                size="sm"
+                onChange={(e) => {
+                  const page = e.target.value ? Number(e.target.value) - 1 : 0;
+                  gotoPage(page);
+                }}
+              />
+              <Spacer />
+              <Select
+                className="form-control"
+                size="sm"
+                value={pageSize}
+                border="2px solid"
+                borderColor="#FE875D"
+                bg="#AACFDD"
+                width={{ base: "75vw", sm: "50vw", md: "30vw", lg: "20vw" }}
+                focusBorderColor="teal.500"
+                errorBorderColor="red.400"
+                borderRadius="6px"
+                onChange={(e) => {
+                  setPageSize(Number(e.target.value));
+                }}
+              >
+                {[5, 10, 20, 30, 40, 50].map((pageSize) => (
+                  <option key={pageSize} value={pageSize}>
+                    Show {pageSize} Results Per Page
+                  </option>
+                ))}
+              </Select>
+            </HStack>
           </Flex>
 
           <Flex width="100%" justifyContent="center">

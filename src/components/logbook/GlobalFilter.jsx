@@ -6,15 +6,15 @@ const GlobalFilter = ({ filter, setFilter }) => {
     <>
       <Input
         color="black"
-        border="1px solid"
-        borderColor="#356288"
-        borderRadius="15px"
+        border="2px solid"
+        borderColor="#FE875D"
+        borderRadius="6px"
         bg="#AACFDD"
         focusBorderColor="#356288"
         errorBorderColor="#FE1100"
         placeholder="Search"
         size="sm"
-        width="50vw"
+        width="20vw"
         value={filter || ""}
         onChange={(e) => setFilter(e.target.value)}
       />

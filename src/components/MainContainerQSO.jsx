@@ -13,7 +13,7 @@ const MainContainerQSO = (props) => {
     <Flex
       position="absolute"
       bg="rgba(53, 98, 136, 0.6)"
-      height="50%"
+      height="55%"
       width="75vw"
       justifyContent="center"
       alignItems="center"

@@ -16,6 +16,15 @@ import {
   chakra,
   HStack,
   VStack,
+  Modal,
+  ModalOverlay,
+  ModalContent,
+  ModalHeader,
+  ModalFooter,
+  ModalBody,
+  ModalCloseButton,
+  useDisclosure,
+  Textarea,
 } from "@chakra-ui/react";
 import {
   ChevronLeftIcon,
@@ -37,7 +46,29 @@ import {
 
 import GlobalFilter from "./GlobalFilter";
 // when backend is set up, pass { columns, data } as props
+
 const LogbookTable = () => {
+  const { isOpen, onOpen, onClose } = useDisclosure();
+
+  const openModal = () => {
+    onOpen();
+    <Modal isOpen={isOpen} onClose={onClose}>
+      <ModalOverlay />
+      <ModalContent>
+        <ModalHeader>Add Notes</ModalHeader>
+        <ModalCloseButton />
+        <ModalBody>
+          <Textarea placeholder="Add notes about QSO Contact here." />
+        </ModalBody>
+        <ModalFooter>
+          <Button colorScheme="blue" mr={3} onClick={onClose}>
+            Close
+          </Button>
+          <Button variant="ghost">Display Note</Button>
+        </ModalFooter>
+      </ModalContent>
+    </Modal>;
+  };
   const data = useMemo(
     () => [
       {
@@ -49,7 +80,8 @@ const LogbookTable = () => {
         qsoTime: "18:20",
         frequency: "7.194",
         mode: "SSB",
-        notes: "",
+        band: "40m",
+        // notes: "",
       },
       {
         qsoNumber: 2,
@@ -60,6 +92,7 @@ const LogbookTable = () => {
         qsoTime: "18:20",
         frequency: "7.194",
         mode: "SSB",
+        band: "40m",
         notes: "",
       },
       {
@@ -71,7 +104,8 @@ const LogbookTable = () => {
         qsoTime: "17:52",
         frequency: "7.294",
         mode: "SSB",
-        notes: "",
+        band: "40m",
+        // notes: "",
       },
       {
         qsoNumber: 4,
@@ -82,7 +116,8 @@ const LogbookTable = () => {
         qsoTime: "23:48",
         frequency: "146.52",
         mode: "FM",
-        notes: "",
+        band: "2m",
+        // notes: "",
       },
       {
         qsoNumber: 5,
@@ -93,7 +128,8 @@ const LogbookTable = () => {
         qsoTime: "23:45",
         frequency: "146.52",
         mode: "FM",
-        notes: "",
+        band: "2m",
+        // notes: "",
       },
     ],
     [],
@@ -158,11 +194,23 @@ const LogbookTable = () => {
         maxWidth: 200,
       },
       {
+        Header: "Band",
+        accessor: "band",
+        minWidth: 30,
+        width: 150,
+        maxWidth: 200,
+      },
+      {
         Header: "Notes",
         accessor: "notes",
         minWidth: 30,
         width: 150,
         maxWidth: 200,
+        Cell: ({ cell }) => (
+          <Button size="xs" onClick={openModal}>
+            Add Notes
+          </Button>
+        ),
       },
     ],
     [],

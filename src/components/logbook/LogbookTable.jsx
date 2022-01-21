@@ -50,25 +50,6 @@ import GlobalFilter from "./GlobalFilter";
 const LogbookTable = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
 
-  const openModal = () => {
-    onOpen();
-    <Modal isOpen={isOpen} onClose={onClose}>
-      <ModalOverlay />
-      <ModalContent>
-        <ModalHeader>Add Notes</ModalHeader>
-        <ModalCloseButton />
-        <ModalBody>
-          <Textarea placeholder="Add notes about QSO Contact here." />
-        </ModalBody>
-        <ModalFooter>
-          <Button colorScheme="blue" mr={3} onClick={onClose}>
-            Close
-          </Button>
-          <Button variant="ghost">Display Note</Button>
-        </ModalFooter>
-      </ModalContent>
-    </Modal>;
-  };
   const data = useMemo(
     () => [
       {
@@ -207,14 +188,34 @@ const LogbookTable = () => {
         width: 150,
         maxWidth: 200,
         Cell: ({ cell }) => (
-          <Button size="xs" onClick={openModal}>
-            Add Notes
+          <Button size="xs" borderRadius="6px" bg="#FE875D" color="white" onClick={onOpen}>
+            Show Notes
           </Button>
         ),
       },
     ],
     [],
   );
+
+  /*const openModal = () => {
+    onOpen();
+    <Modal isOpen={isOpen} onClose={onClose}>
+      <ModalOverlay />
+      <ModalContent>
+        <ModalHeader>Add Notes</ModalHeader>
+        <ModalCloseButton />
+        <ModalBody>
+          <Textarea placeholder="Add notes about QSO Contact here." />
+        </ModalBody>
+        <ModalFooter>
+          <Button colorScheme="blue" mr={3} onClick={onClose}>
+            Close
+          </Button>
+          <Button variant="ghost">Display Note</Button>
+        </ModalFooter>
+      </ModalContent>
+    </Modal>;
+  };*/
 
   const {
     getTableProps,
@@ -277,6 +278,29 @@ const LogbookTable = () => {
                   ))}
                 </Tr>
               ))}
+              <Modal isOpen={isOpen} onClose={onClose}>
+                <ModalOverlay />
+                <ModalContent bg="#356288">
+                  <ModalHeader color="#AACFDD">QSO Notes</ModalHeader>
+                  <ModalBody>
+                    <Textarea
+                      bg="#AACFDD"
+                      border="2px solid"
+                      focusBorderColor="#FE875D"
+                      borderColor="#356288"
+                      placeholder="Add notes about QSO Contact here"
+                    />
+                  </ModalBody>
+                  <ModalFooter>
+                    {/*<Button borderRadius="6px" bg="#FE875D" color="white" mr={3}>
+                      Save Note
+                      </Button>*/}
+                    <Button borderRadius="6px" bg="#FE875D" color="white" onClick={onClose}>
+                      Close
+                    </Button>
+                  </ModalFooter>
+                </ModalContent>
+              </Modal>
             </Thead>
             <Tbody {...getTableBodyProps()}>
               {page.map((row, i) => {

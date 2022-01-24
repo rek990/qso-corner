@@ -25,7 +25,7 @@ const App = () => {
     */
 
   return (
-    <Flex className="App" height="100%" width="100%" alignItems="center" justifyContent="center">
+    <Flex className="App" height="100%" alignItems="center" justifyContent="center">
       <NavBarContainerQSO currentUser={currentUser} setCurrentUser={setCurrentUser} />
       {dataError ? <ErrorAlertQSO /> : null}
       <QSORoutes setDataError={setDataError} />

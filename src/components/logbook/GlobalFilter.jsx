@@ -9,7 +9,7 @@ const GlobalFilter = ({ filter, setFilter }) => {
         border="2px solid"
         borderColor="#FE875D"
         borderRadius="6px"
-        bg="#AACFDD"
+        bg="#C8E0E9"
         focusBorderColor="#356288"
         errorBorderColor="#FE1100"
         placeholder="Search"

@@ -197,26 +197,6 @@ const LogbookTable = () => {
     [],
   );
 
-  /*const openModal = () => {
-    onOpen();
-    <Modal isOpen={isOpen} onClose={onClose}>
-      <ModalOverlay />
-      <ModalContent>
-        <ModalHeader>Add Notes</ModalHeader>
-        <ModalCloseButton />
-        <ModalBody>
-          <Textarea placeholder="Add notes about QSO Contact here." />
-        </ModalBody>
-        <ModalFooter>
-          <Button colorScheme="blue" mr={3} onClick={onClose}>
-            Close
-          </Button>
-          <Button variant="ghost">Display Note</Button>
-        </ModalFooter>
-      </ModalContent>
-    </Modal>;
-  };*/
-
   const {
     getTableProps,
     getTableBodyProps,
@@ -284,7 +264,7 @@ const LogbookTable = () => {
                   <ModalHeader color="#AACFDD">QSO Notes</ModalHeader>
                   <ModalBody>
                     <Textarea
-                      bg="#AACFDD"
+                      bg="#C8E0E9"
                       border="2px solid"
                       focusBorderColor="#FE875D"
                       borderColor="#356288"
@@ -374,7 +354,7 @@ const LogbookTable = () => {
                 type="number"
                 border="2px solid"
                 borderColor="#FE875D"
-                bg="#AACFDD"
+                bg="#C8E0E9"
                 borderRadius="6px"
                 width={{ base: "75vw", sm: "50vw", md: "30vw", lg: "20vw" }}
                 focusBorderColor="teal.500"
@@ -393,7 +373,7 @@ const LogbookTable = () => {
                 value={pageSize}
                 border="2px solid"
                 borderColor="#FE875D"
-                bg="#AACFDD"
+                bg="#C8E0E9"
                 width={{ base: "75vw", sm: "50vw", md: "30vw", lg: "20vw" }}
                 focusBorderColor="teal.500"
                 errorBorderColor="red.400"

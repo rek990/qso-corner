@@ -42,7 +42,15 @@ const LogQSOContainer = () => {
           </Select>
         </GridItem>
         <GridItem id="mode-dropdown-menu">
-          <Select placeholder="Mode"></Select>
+          <Select placeholder="Mode">
+            <option>SSB</option>
+            <option>CW</option>
+            <option>AM</option>
+            <option>FM</option>
+            <option>RTTY</option>
+            <option>PSK31</option>
+            <option>DSTAR</option>
+          </Select>
         </GridItem>
         <GridItem id="frequency-input">
           <Select placeholder="Frequency">

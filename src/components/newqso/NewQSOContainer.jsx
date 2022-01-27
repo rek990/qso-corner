@@ -1,7 +1,7 @@
 import React from "react";
 import { Grid, GridItem } from "@chakra-ui/react";
 import LogQSOContainer from "./LogQSOContainer";
-// import QSOHistoryContainer from "./QSOHistoryContainer";
+import QSOHistoryContainer from "./QSOHistoryContainer";
 import QRZAPIContainer from "./QRZAPIContainer";
 
 const NewQSOContainer = () => {
@@ -22,7 +22,7 @@ const NewQSOContainer = () => {
           <QRZAPIContainer />
         </GridItem>
         <GridItem id="qso-contact-history-table" bg="#AACFDD" colSpan={2} height="415px">
-          <span>QSO Contact History</span>
+          <QSOHistoryContainer />
         </GridItem>
       </Grid>
     </>

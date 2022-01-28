@@ -15,9 +15,19 @@ const QSOHistoryContainer = (props) => {
           justifyContent="center"
           alignItems="center"
         >
-          <Heading size="lg" color="#356288">
-            Previous QSOs with John Doe
-          </Heading>
+          {" "}
+          <Flex
+            width="30vw"
+            height="7vh"
+            bg="#356288"
+            borderRadius="15px"
+            justifyContent="center"
+            alignItems="center"
+          >
+            <Heading size="lg" color="#AACFDD">
+              Previous QSOs with John Doe
+            </Heading>
+          </Flex>
         </Flex>
         <QSOHistoryTable />
       </VStack>

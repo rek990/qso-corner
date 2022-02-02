@@ -1,5 +1,5 @@
 import React from "react";
-import { Grid, GridItem } from "@chakra-ui/react";
+import { Grid, GridItem, Heading, Flex, Spacer } from "@chakra-ui/react";
 import LogQSOContainer from "./LogQSOContainer";
 import QSOHistoryContainer from "./QSOHistoryContainer";
 import QRZAPIContainer from "./QRZAPIContainer";
@@ -16,9 +16,21 @@ const NewQSOContainer = () => {
         width="90vw"
       >
         <GridItem id="log-new-qso" bg="#AACFDD" height="380px" width="775px">
+          <Flex
+            width="30vw"
+            height="7vh"
+            bg="#356288"
+            borderRadius="15px"
+            justifyContent="center"
+            alignItems="center"
+          >
+            <Heading size="lg" color="#AACFDD">
+              Log New QSO
+            </Heading>
+          </Flex>
           <LogQSOContainer />
         </GridItem>
-        <GridItem id="qrz-api-info" bg="#AACFDD" width="443ppx" height="380px">
+        <GridItem id="qrz-api-info" bg="#AACFDD" width="443px" height="380px">
           <QRZAPIContainer />
         </GridItem>
         <GridItem id="qso-contact-history-table" bg="#AACFDD" colSpan={2} height="415px">

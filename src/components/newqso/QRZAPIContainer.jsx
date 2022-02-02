@@ -1,10 +1,26 @@
 import React from "react";
-import { Heading, Text, Flex, HStack, VStack } from "@chakra-ui/react";
+import { Heading, Text, Flex, HStack, VStack, Box } from "@chakra-ui/react";
 
 const QRZAPIContainer = () => {
   return (
     <>
-      <HStack spacing={5} padding="1%">
+      <Box boxSizing="border-box" paddingTop="3%" paddingLeft="5%" float="left">
+        <Heading size="lg">John Doe</Heading>
+        <Text>123 Main Street</Text>
+        <Text>Anytown, GA 12345</Text>
+        <Text> United States of America</Text>
+      </Box>
+      <Box boxSizing="border-box" paddingTop="3%" paddingRight="5%" float="right">
+        <Heading size="sm">General Class</Heading>
+      </Box>
+    </>
+  );
+};
+
+export default QRZAPIContainer;
+
+{
+  /*<HStack spacing={5} padding="1%">
         <Heading size="lg">John Doe</Heading>
         <Heading size="xs">General Class</Heading>
       </HStack>
@@ -12,9 +28,5 @@ const QRZAPIContainer = () => {
         <Text>123 Main Street</Text>
         <Text>Anytown, GA 12345</Text>
         <Text> United States of America</Text>
-      </VStack>
-    </>
-  );
-};
-
-export default QRZAPIContainer;
+        </VStack>*/
+}

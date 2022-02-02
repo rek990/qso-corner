@@ -15,18 +15,59 @@ import {
 const LogQSOContainer = () => {
   return (
     <>
-      <Grid position="absolute" templateRows="repeat(5, 1fr)" templateColumns="repeat(4, 1fr)">
+      <Grid
+        className="log-qso-container-grid"
+        position="absolute"
+        templateRows="repeat(5, 1fr)"
+        templateColumns="repeat(4, 1fr)"
+      >
         <GridItem id="call-sign-input">
-          <Input placeholder="Call Sign"></Input>
+          <Input
+            placeholder="Call Sign"
+            size="sm"
+            borderRadius="6px"
+            border="2px solid"
+            borderColor="#FE875D"
+            bg="white"
+            focusBorderColor="teal.500"
+            errorBorderColor="red.400"
+          ></Input>
         </GridItem>
         <GridItem id="date-input">
-          <Input placeholder="Date"></Input>
+          <Input
+            placeholder="Date"
+            size="sm"
+            borderRadius="6px"
+            border="2px solid"
+            borderColor="#FE875D"
+            bg="white"
+            focusBorderColor="teal.500"
+            errorBorderColor="red.400"
+          ></Input>
         </GridItem>
         <GridItem id="time-input">
-          <Input placeholder="Time (UTC)"></Input>
+          <Input
+            placeholder="Time (UTC)"
+            size="sm"
+            borderRadius="6px"
+            border="2px solid"
+            borderColor="#FE875D"
+            bg="white"
+            focusBorderColor="teal.500"
+            errorBorderColor="red.400"
+          ></Input>
         </GridItem>
         <GridItem id="band-dropdown-menu">
-          <Select placeholder="Band">
+          <Select
+            placeholder="Band"
+            size="sm"
+            border="2px solid"
+            borderColor="#FE875D"
+            bg="white"
+            focusBorderColor="teal.500"
+            errorBorderColor="red.400"
+            borderRadius="6px"
+          >
             <option>160m</option>
             <option>80m</option>
             <option>40m</option>
@@ -42,7 +83,16 @@ const LogQSOContainer = () => {
           </Select>
         </GridItem>
         <GridItem id="mode-dropdown-menu">
-          <Select placeholder="Mode">
+          <Select
+            placeholder="Mode"
+            size="sm"
+            border="2px solid"
+            borderColor="#FE875D"
+            bg="white"
+            focusBorderColor="teal.500"
+            errorBorderColor="red.400"
+            borderRadius="6px"
+          >
             <option>SSB</option>
             <option>CW</option>
             <option>AM</option>
@@ -53,7 +103,16 @@ const LogQSOContainer = () => {
           </Select>
         </GridItem>
         <GridItem id="frequency-input">
-          <Select placeholder="Frequency">
+          <Select
+            placeholder="Frequency"
+            size="sm"
+            borderRadius="6px"
+            border="2px solid"
+            borderColor="#FE875D"
+            bg="white"
+            focusBorderColor="teal.500"
+            errorBorderColor="red.400"
+          >
             <option>1.8 MHz</option>
             <option>3.5 MHz</option>
             <option>7 MHz</option>
@@ -69,19 +128,58 @@ const LogQSOContainer = () => {
           </Select>
         </GridItem>
         <GridItem id="power-input">
-          <Input placeholder="Power (W)"></Input>
+          <Input
+            placeholder="Power (W)"
+            size="sm"
+            borderRadius="6px"
+            border="2px solid"
+            borderColor="#FE875D"
+            bg="white"
+            focusBorderColor="teal.500"
+            errorBorderColor="red.400"
+          ></Input>
         </GridItem>
         <GridItem id="sent-signal-input">
-          <Input placeholder="Sent"></Input>
+          <Input
+            placeholder="Sent"
+            size="sm"
+            borderRadius="6px"
+            border="2px solid"
+            borderColor="#FE875D"
+            bg="white"
+            focusBorderColor="teal.500"
+            errorBorderColor="red.400"
+          ></Input>
         </GridItem>
         <GridItem id="received-signal-input">
-          <Input placeholder="Received"></Input>
+          <Input
+            placeholder="Received"
+            size="sm"
+            borderRadius="6px"
+            border="2px solid"
+            borderColor="#FE875D"
+            bg="white"
+            focusBorderColor="teal.500"
+            errorBorderColor="red.400"
+          ></Input>
         </GridItem>
         <GridItem id="notes">
-          <Textarea placeholder="Notes"></Textarea>
+          <Textarea
+            placeholder="Notes"
+            size="sm"
+            borderRadius="6px"
+            border="2px solid"
+            borderColor="#FE875D"
+            bg="white"
+            focusBorderColor="teal.500"
+            errorBorderColor="red.400"
+          ></Textarea>
         </GridItem>
         <GridItem id="submit-button">
-          <Button type="submit">Submit</Button>
+          {" "}
+          <Button type="submit" size="sm" bg="#FE875D" color="white">
+            Submit
+          </Button>
         </GridItem>
       </Grid>
     </>

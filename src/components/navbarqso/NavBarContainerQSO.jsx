@@ -14,12 +14,13 @@ const NavBarContainerQSO = () => {
       <Flex
         width="100%"
         height="7vh"
-        position="absolute"
+        position="fixed"
         top="0vh"
         bg="#AACFDD"
         style={{ boxShadow: "0px 4px 4px rgba(0, 0, 0, 0.25)" }}
         flexWrap="wrap"
         margin="auto"
+        zIndex={1}
       >
         <Flex direction="row" width="100%" alignItems="center">
           <NavBarHeaderQSO />

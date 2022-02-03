@@ -10,6 +10,7 @@ import {
   Select,
   Textarea,
   Button,
+  Spacer,
 } from "@chakra-ui/react";
 
 const LogQSOContainer = () => {
@@ -19,6 +20,8 @@ const LogQSOContainer = () => {
         className="log-qso-container-grid"
         templateRows="repeat(5, 1fr)"
         templateColumns="repeat(4, 1fr)"
+        gap={5}
+        height={1}
       >
         <GridItem id="call-sign-input" colSpan={2}>
           <Input
@@ -174,9 +177,8 @@ const LogQSOContainer = () => {
             errorBorderColor="red.400"
           ></Textarea>
         </GridItem>
-        <GridItem id="submit-button">
-          {" "}
-          <Button type="submit" size="sm" bg="#FE875D" color="white">
+        <GridItem id="submit-button" colStart={4} colEnd={4}>
+          <Button type="submit" size="sm" bg="#FE875D" color="white" float="right">
             Submit
           </Button>
         </GridItem>

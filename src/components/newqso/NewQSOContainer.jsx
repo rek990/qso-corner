@@ -15,7 +15,7 @@ const NewQSOContainer = () => {
         height="75%"
         width="90vw"
       >
-        <GridItem id="log-new-qso" bg="#AACFDD" height="380px" width="775px" padding="5%">
+        <GridItem id="log-new-qso" bg="#AACFDD" height="380px" width="775px" padding="1% 5%">
           <VStack>
             <Flex
               className="02-flex"

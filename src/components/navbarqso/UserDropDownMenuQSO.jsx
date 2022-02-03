@@ -23,7 +23,7 @@ const UserDropdownMenu = (props) => {
         >
           {" "}
           {/*need to determine why _hover and _active or _expanded does not work*/}
-          {callsign}
+          User
         </MenuButton>
         <MenuList minWidth="100px">
           <MenuItem fontSize="14px">Profile Settings</MenuItem>

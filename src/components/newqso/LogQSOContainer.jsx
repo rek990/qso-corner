@@ -17,11 +17,10 @@ const LogQSOContainer = () => {
     <>
       <Grid
         className="log-qso-container-grid"
-        position="absolute"
         templateRows="repeat(5, 1fr)"
         templateColumns="repeat(4, 1fr)"
       >
-        <GridItem id="call-sign-input">
+        <GridItem id="call-sign-input" colSpan={2}>
           <Input
             placeholder="Call Sign"
             size="sm"
@@ -57,7 +56,7 @@ const LogQSOContainer = () => {
             errorBorderColor="red.400"
           ></Input>
         </GridItem>
-        <GridItem id="band-dropdown-menu">
+        <GridItem id="band-dropdown-menu" colSpan={2}>
           <Select
             placeholder="Band"
             size="sm"
@@ -82,7 +81,7 @@ const LogQSOContainer = () => {
             <option>70cm</option>
           </Select>
         </GridItem>
-        <GridItem id="mode-dropdown-menu">
+        <GridItem id="mode-dropdown-menu" colSpan={2}>
           <Select
             placeholder="Mode"
             size="sm"
@@ -163,7 +162,7 @@ const LogQSOContainer = () => {
             errorBorderColor="red.400"
           ></Input>
         </GridItem>
-        <GridItem id="notes">
+        <GridItem id="notes" colSpan={4}>
           <Textarea
             placeholder="Notes"
             size="sm"

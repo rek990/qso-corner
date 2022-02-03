@@ -30,9 +30,9 @@ const NewQSOContainer = () => {
                 Log New QSO
               </Heading>
             </Flex>
+            <br />
+            <LogQSOContainer />
           </VStack>
-          <br />
-          <LogQSOContainer />
         </GridItem>
         <GridItem id="qrz-api-info" bg="#AACFDD" width="443px" height="380px">
           <QRZAPIContainer />

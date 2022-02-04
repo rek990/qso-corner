@@ -8,6 +8,7 @@ const NewQSOContainer = () => {
   return (
     <>
       <Grid
+        className="new-qso-container-grid"
         position="absolute"
         templateRows="repeat(2)"
         templateColumns="repeat(3, 1fr)"
@@ -37,7 +38,7 @@ const NewQSOContainer = () => {
         <GridItem id="qrz-api-info" bg="#AACFDD" width="443px" height="380px">
           <QRZAPIContainer />
         </GridItem>
-        <GridItem id="qso-contact-history-table" bg="#AACFDD" colSpan={2} height="415px">
+        <GridItem id="qso-contact-history-table" bg="#AACFDD" colSpan={2} height="450px">
           <QSOHistoryContainer />
         </GridItem>
       </Grid>

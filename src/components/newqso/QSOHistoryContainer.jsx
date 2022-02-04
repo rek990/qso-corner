@@ -5,20 +5,27 @@ import { VStack, Flex, Spacer, Heading } from "@chakra-ui/react";
 
 const QSOHistoryContainer = (props) => {
   return (
-    <Flex direction="row" width="100%">
-      <VStack>
+    <Flex
+      className="main-qso-history-container"
+      direction="row"
+      width="100%"
+      justifyContent="center"
+    >
+      <VStack className="vstack-qso-history-container">
         <Spacer />
         <Flex
-          width="30vw"
-          height="7vh"
+          className="qso-container-for-the-container-with-heading"
+          width="50vw"
+          height="5vh"
           borderRadius="15px"
           justifyContent="center"
           alignItems="center"
         >
           {" "}
           <Flex
-            width="30vw"
-            height="7vh"
+            className="qso-history-container-with-heading"
+            width="100%"
+            height="5vh"
             bg="#356288"
             borderRadius="15px"
             justifyContent="center"

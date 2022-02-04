@@ -56,45 +56,45 @@ const QSOHistoryTable = () => {
         qsoNumber: 1,
         qsoDate: "2021-12-31",
         qsoTime: "18:20",
+        band: "40m",
         frequency: "7.194",
         mode: "SSB",
-        band: "40m",
         notes: "",
       },
       {
         qsoNumber: 2,
         qsoDate: "2021-12-31",
         qsoTime: "18:20",
+        band: "40m",
         frequency: "7.194",
         mode: "SSB",
-        band: "40m",
         notes: "",
       },
       {
         qsoNumber: 3,
         qsoDate: "2021-12-31",
         qsoTime: "17:52",
+        band: "40m",
         frequency: "7.294",
         mode: "SSB",
-        band: "40m",
         notes: "",
       },
       {
         qsoNumber: 4,
         qsoDate: "2021-02-20",
         qsoTime: "23:48",
+        band: "2m",
         frequency: "146.52",
         mode: "FM",
-        band: "2m",
         notes: "",
       },
       {
         qsoNumber: 5,
         qsoDate: "2021-02-20",
         qsoTime: "23:45",
+        band: "2m",
         frequency: "146.52",
         mode: "FM",
-        band: "2m",
         notes: "",
       },
     ],
@@ -125,6 +125,13 @@ const QSOHistoryTable = () => {
         maxWidth: 200,
       },
       {
+        Header: "Band",
+        accessor: "band",
+        minWidth: 30,
+        width: 100,
+        maxWidth: 200,
+      },
+      {
         Header: "Freq. (MHz)",
         accessor: "frequency",
         minWidth: 30,
@@ -138,13 +145,7 @@ const QSOHistoryTable = () => {
         width: 100,
         maxWidth: 200,
       },
-      {
-        Header: "Band",
-        accessor: "band",
-        minWidth: 30,
-        width: 150,
-        maxWidth: 200,
-      },
+
       {
         Header: "Notes",
         accessor: "notes",
@@ -189,13 +190,13 @@ const QSOHistoryTable = () => {
 
   return (
     <>
-      <Flex direction="column" width="75vw" paddingLeft="2em" paddingRight="2em">
+      <Flex className="main-qso-history-table-container" direction="column" width="75vw">
         <Flex justifyContent="center">
           <GlobalFilter filter={globalFilter} setFilter={setGlobalFilter} />
         </Flex>
         <br />
         <TableScrollbar>
-          <Table className="table" bg="#AACFDD" variant="striped" {...getTableProps()}>
+          <Table className="table" bg="#FE875D" variant="striped" {...getTableProps()}>
             <Thead>
               {headerGroups.map((headerGroup) => (
                 <Tr {...headerGroup.getHeaderGroupProps()}>
@@ -301,8 +302,10 @@ const QSOHistoryTable = () => {
             </Button>
           </HStack>
           <Spacer />
-          <Text color="white">
-            Page <b>{pageIndex + 1}</b> of <b>{pageOptions.length}</b>
+          <Text color="#356288">
+            <strong>
+              Page {pageIndex + 1} of {pageOptions.length}
+            </strong>
           </Text>
         </Flex>
         <Spacer />
@@ -349,10 +352,11 @@ const QSOHistoryTable = () => {
               </Select>
             </HStack>
           </Flex>
-
           <Flex width="100%" justifyContent="center">
-            <Text color="white">
-              Showing the First {pageSize} Results of {rows.length} Results
+            <Text color="#356288">
+              <strong>
+                Showing the First {pageSize} Results of {rows.length} Results
+              </strong>
             </Text>
           </Flex>
         </VStack>

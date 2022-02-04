@@ -1,10 +1,8 @@
 import React from "react";
 import { HStack, Flex, Spacer } from "@chakra-ui/react";
-// import { Link } from "react-router-dom";
 import NavBarHeaderQSO from "./NavBarHeaderQSO";
 import NavBarLinksMenuQSO from "./NavBarLinksMenuQSO";
 import UserDropdownMenuQSO from "./UserDropDownMenuQSO";
-//import NavBarImg from "./NavBarImg";
 
 const NavBarContainerQSO = () => {
   // Once authentication is set up, logic should be implemented to show certain menu options when a user is logged in.

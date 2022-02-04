@@ -74,7 +74,7 @@ const LogbookTable = () => {
         frequency: "7.194",
         mode: "SSB",
         band: "40m",
-        notes: "",
+        //notes: "",
       },
       {
         qsoNumber: 3,

@@ -54,8 +54,8 @@ const LogbookTable = () => {
     () => [
       {
         qsoNumber: 1,
-        callSign: "W4GI",
-        operatorName: "JBW",
+        callSign: "W4ABC",
+        operatorName: "ABC",
         country: "USA",
         qsoDate: "2021-12-31",
         qsoTime: "18:20",
@@ -66,8 +66,8 @@ const LogbookTable = () => {
       },
       {
         qsoNumber: 2,
-        callSign: "KO4LIT",
-        operatorName: "DD",
+        callSign: "KO4DEF",
+        operatorName: "DEF",
         country: "USA",
         qsoDate: "2021-12-31",
         qsoTime: "18:20",
@@ -78,8 +78,8 @@ const LogbookTable = () => {
       },
       {
         qsoNumber: 3,
-        callSign: "W4NQX",
-        operatorName: "VFC",
+        callSign: "W4GHI",
+        operatorName: "GHI",
         country: "USA",
         qsoDate: "2021-12-31",
         qsoTime: "17:52",
@@ -90,8 +90,8 @@ const LogbookTable = () => {
       },
       {
         qsoNumber: 4,
-        callSign: "AE1JS",
-        operatorName: "JWS",
+        callSign: "KO4JKL",
+        operatorName: "JKL",
         country: "USA",
         qsoDate: "2021-02-20",
         qsoTime: "23:48",
@@ -102,8 +102,8 @@ const LogbookTable = () => {
       },
       {
         qsoNumber: 5,
-        callSign: "AE1MS",
-        operatorName: "MHS",
+        callSign: "KO4MNO",
+        operatorName: "MNO",
         country: "USA",
         qsoDate: "2021-02-20",
         qsoTime: "23:45",

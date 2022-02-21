@@ -11,7 +11,7 @@ const ErrorAlertQSO = () => {
           <AlertTitle>You've encountered an error.</AlertTitle>
           <AlertDescription>
             An error occurred when loading this page. Please try refreshing the page, and if you
-            receive this message again, contact QSO Corner support at for further assistance.
+            receive this message again, contact QSO Corner support for further assistance.
           </AlertDescription>
         </Alert>
       ) : null}

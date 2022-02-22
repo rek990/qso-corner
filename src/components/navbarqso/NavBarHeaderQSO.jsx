@@ -1,5 +1,5 @@
 import React from "react";
-import { Heading } from "@chakra-ui/react";
+import { Heading, Link } from "@chakra-ui/react";
 
 const NavBarHeaderQSO = () => {
   return (
@@ -13,7 +13,9 @@ const NavBarHeaderQSO = () => {
         size="md"
         paddingLeft="0.5em"
       >
-        QSO Corner
+        <Link as={Link} href="/">
+          QSO Corner
+        </Link>
       </Heading>
     </>
   );

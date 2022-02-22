@@ -1,6 +1,6 @@
 import React from "react";
 import LogbookTableAPI from "./LogbookTableAPI";
-import LogbookTable from "./LogbookTable";
+// import LogbookTable from "./LogbookTable";
 import { VStack, Flex, Spacer, Heading } from "@chakra-ui/react";
 
 const LogbookContainer = (props) => {

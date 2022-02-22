@@ -3,7 +3,7 @@ import LogbookTable from "./LogbookTable";
 import { Button, useDisclosure } from "@chakra-ui/react";
 //import axiosInstance from "../authentication/authApi";
 
-const LogbookTableAPI = () => {
+export default function LogbookTableAPI() {
   const [cells, setCells] = useState([]);
   const { onOpen } = useDisclosure();
 
@@ -110,9 +110,9 @@ const LogbookTableAPI = () => {
   const data = useMemo(() => cells, [cells]); //[] gives no cells on refresh
 
   return <>{cells && <LogbookTable columns={columns} data={data} />}</>;
-};
+}
 
-export default LogbookTableAPI.jsx;
+//export default LogbookTableAPI.jsx;
 
 // code when all was hardcoded:
 

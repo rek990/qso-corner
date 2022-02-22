@@ -1,0 +1,69 @@
+{
+  "qsoHistory": [
+    {
+      "id": 0,
+      "qsoNumber": 1,
+      "callSign": "W4ABC",
+      "operatorName": "ABC",
+      "country": "USA",
+      "qsoDate": "2021-12-31",
+      "qsoTime": "18:20",
+      "frequency": "7.194",
+      "mode": "SSB",
+      "band": "40m",
+      "notes": "notes 1"
+    },
+    {
+      "id": 1,
+      "qsoNumber": 2,
+      "callSign": "KO4DEF",
+      "operatorName": "DEF",
+      "country": "USA",
+      "qsoDate": "2021-12-31",
+      "qsoTime": "18:20",
+      "frequency": "7.194",
+      "mode": "SSB",
+      "band": "40m",
+      "notes": "notes 2"
+    },
+    {
+      "id": 2,
+      "qsoNumber": 3,
+      "callSign": "W4GHI",
+      "operatorName": "GHI",
+      "country": "USA",
+      "qsoDate": "2021-12-31",
+      "qsoTime": "17:52",
+      "frequency": "7.294",
+      "mode": "SSB",
+      "band": "40m",
+      "notes": "notes 3"
+    },
+    {
+      "id": 3,
+      "qsoNumber": 4,
+      "callSign": "KO4JKL",
+      "operatorName": "JKL",
+      "country": "USA",
+      "qsoDate": "2021-02-20",
+      "qsoTime": "23:48",
+      "frequency": "146.52",
+      "mode": "FM",
+      "band": "2m",
+      "notes": "notes 4"
+    },
+    {
+      "id": 4,
+      "qsoNumber": 5,
+      "callSign": "KO4MNO",
+      "operatorName": "MNO",
+      "country": "USA",
+      "qsoDate": "2021-02-20",
+      "qsoTime": "23:45",
+      "frequency": "146.52",
+      "mode": "FM",
+      "band": "2m",
+      "notes": "notes 5"
+    }
+  ]
+}

@@ -45,158 +45,9 @@ import {
 } from "react-table";
 
 import GlobalFilter from "./GlobalFilter";
-// when backend is set up, pass { columns, data } as props
 
-const LogbookTable = () => {
+const LogbookTable = ({ columns, data }) => {
   const { isOpen, onOpen, onClose } = useDisclosure();
-
-  const data = useMemo(
-    () => [
-      {
-        qsoNumber: 1,
-        callSign: "W4ABC",
-        operatorName: "ABC",
-        country: "USA",
-        qsoDate: "2021-12-31",
-        qsoTime: "18:20",
-        frequency: "7.194",
-        mode: "SSB",
-        band: "40m",
-        // notes: "",
-      },
-      {
-        qsoNumber: 2,
-        callSign: "KO4DEF",
-        operatorName: "DEF",
-        country: "USA",
-        qsoDate: "2021-12-31",
-        qsoTime: "18:20",
-        frequency: "7.194",
-        mode: "SSB",
-        band: "40m",
-        //notes: "",
-      },
-      {
-        qsoNumber: 3,
-        callSign: "W4GHI",
-        operatorName: "GHI",
-        country: "USA",
-        qsoDate: "2021-12-31",
-        qsoTime: "17:52",
-        frequency: "7.294",
-        mode: "SSB",
-        band: "40m",
-        // notes: "",
-      },
-      {
-        qsoNumber: 4,
-        callSign: "KO4JKL",
-        operatorName: "JKL",
-        country: "USA",
-        qsoDate: "2021-02-20",
-        qsoTime: "23:48",
-        frequency: "146.52",
-        mode: "FM",
-        band: "2m",
-        // notes: "",
-      },
-      {
-        qsoNumber: 5,
-        callSign: "KO4MNO",
-        operatorName: "MNO",
-        country: "USA",
-        qsoDate: "2021-02-20",
-        qsoTime: "23:45",
-        frequency: "146.52",
-        mode: "FM",
-        band: "2m",
-        // notes: "",
-      },
-    ],
-    [],
-  );
-
-  const columns = useMemo(
-    () => [
-      {
-        Header: "No.",
-        accessor: "qsoNumber",
-        minWidth: 30,
-        width: 75,
-        maxWidth: 200,
-      },
-      {
-        Header: "Call Sign",
-        accessor: "callSign",
-        minWidth: 30,
-        width: 125,
-        maxWidth: 200,
-      },
-      {
-        Header: "Operator Name",
-        accessor: "operatorName",
-        minWidth: 30,
-        width: 125,
-        maxWidth: 200,
-      },
-      {
-        Header: "Country",
-        accessor: "country",
-        minWidth: 30,
-        width: 125,
-        maxWidth: 200,
-      },
-      {
-        Header: "Date",
-        accessor: "qsoDate",
-        minWidth: 30,
-        width: 130,
-        maxWidth: 200,
-      },
-      {
-        Header: "Time (UTC)",
-        accessor: "qsoTime",
-        minWidth: 30,
-        width: 125,
-        maxWidth: 200,
-      },
-      {
-        Header: "Freq. (MHz)",
-        accessor: "frequency",
-        minWidth: 30,
-        width: 130,
-        maxWidth: 200,
-      },
-      {
-        Header: "Mode",
-        accessor: "mode",
-        minWidth: 30,
-        width: 100,
-        maxWidth: 200,
-      },
-      {
-        Header: "Band",
-        accessor: "band",
-        minWidth: 30,
-        width: 150,
-        maxWidth: 200,
-      },
-      {
-        Header: "Notes",
-        accessor: "notes",
-        minWidth: 30,
-        width: 150,
-        maxWidth: 200,
-        Cell: ({ cell }) => (
-          <Button size="xs" borderRadius="6px" bg="#FE875D" color="white" onClick={onOpen}>
-            Show Notes
-          </Button>
-        ),
-      },
-    ],
-    [],
-  );
-
   const {
     getTableProps,
     getTableBodyProps,
@@ -272,6 +123,7 @@ const LogbookTable = () => {
                     />
                   </ModalBody>
                   <ModalFooter>
+                    */}
                     {/*<Button borderRadius="6px" bg="#FE875D" color="white" mr={3}>
                       Save Note
                       </Button>*/}

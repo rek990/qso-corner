@@ -5,10 +5,10 @@ import { Button, useDisclosure } from "@chakra-ui/react";
 
 const LogbookTableAPI = () => {
   const [cells, setCells] = useState([]);
-  const { isOpen, onOpen, onClose } = useDisclosure();
-  /*
+  const { onOpen } = useDisclosure();
+
   const getData = async () => {
-    axiosInstance
+    /*axiosInstance
       .get("http://127.0.0.1:8000/api/qso-logbook/")
       .then((response) => {
         console.log(response.data);
@@ -16,12 +16,11 @@ const LogbookTableAPI = () => {
       })
       .catch((err) => {
         console.error(err);
-      });
-    // const resp = await fetch("http://127.0.0.1:8000/api/history/");
-    // const data = await resp.json();
-    // setCells(data);
+      });*/
+    const resp = await fetch("http://localhost:3000/qsoHistory/");
+    const data = await resp.json();
+    setCells(data);
   };
-*/
 
   const columns = useMemo(
     () => [
@@ -101,7 +100,7 @@ const LogbookTableAPI = () => {
         ),
       },
     ],
-    [],
+    [onOpen],
   );
 
   useEffect(() => {
@@ -115,5 +114,6 @@ const LogbookTableAPI = () => {
 
 export default LogbookTableAPI.jsx;
 
-// to be added in upon setup of backend:
-//return <>{cells && <LogbookTable columns={columns} data={data} />}</>;
+// code when all was hardcoded:
+
+// return <>{cells && <LogbookTable columns={columns} data={data} />}</>;

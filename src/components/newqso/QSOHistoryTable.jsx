@@ -319,8 +319,8 @@ const QSOHistoryTable = () => {
                 bg="#C8E0E9"
                 borderRadius="6px"
                 width={{ base: "75vw", sm: "50vw", md: "30vw", lg: "20vw" }}
-                focusBorderColor="teal.500"
-                errorBorderColor="red.400"
+                focusBorderColor="#356288"
+                errorBorderColor="#FE1100"
                 placeholder="Go to Page"
                 size="sm"
                 onChange={(e) => {
@@ -337,8 +337,8 @@ const QSOHistoryTable = () => {
                 borderColor="#FE875D"
                 bg="#C8E0E9"
                 width={{ base: "75vw", sm: "50vw", md: "30vw", lg: "20vw" }}
-                focusBorderColor="teal.500"
-                errorBorderColor="red.400"
+                focusBorderColor="#356288"
+                errorBorderColor="#FE1100"
                 borderRadius="6px"
                 onChange={(e) => {
                   setPageSize(Number(e.target.value));

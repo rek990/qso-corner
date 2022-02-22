@@ -31,8 +31,8 @@ const LogQSOContainer = () => {
             border="2px solid"
             borderColor="#FE875D"
             bg="white"
-            focusBorderColor="teal.500"
-            errorBorderColor="red.400"
+            focusBorderColor="#356288"
+            errorBorderColor="#FE1100"
           ></Input>
         </GridItem>
         <GridItem id="date-input">
@@ -43,8 +43,8 @@ const LogQSOContainer = () => {
             border="2px solid"
             borderColor="#FE875D"
             bg="white"
-            focusBorderColor="teal.500"
-            errorBorderColor="red.400"
+            focusBorderColor="#356288"
+            errorBorderColor="#FE1100"
           ></Input>
         </GridItem>
         <GridItem id="time-input">
@@ -55,8 +55,8 @@ const LogQSOContainer = () => {
             border="2px solid"
             borderColor="#FE875D"
             bg="white"
-            focusBorderColor="teal.500"
-            errorBorderColor="red.400"
+            focusBorderColor="#356288"
+            errorBorderColor="#FE1100"
           ></Input>
         </GridItem>
         <GridItem id="band-dropdown-menu" colSpan={2}>
@@ -66,8 +66,8 @@ const LogQSOContainer = () => {
             border="2px solid"
             borderColor="#FE875D"
             bg="white"
-            focusBorderColor="teal.500"
-            errorBorderColor="red.400"
+            focusBorderColor="#356288"
+            errorBorderColor="#FE1100"
             borderRadius="6px"
           >
             <option>160m</option>
@@ -91,8 +91,8 @@ const LogQSOContainer = () => {
             border="2px solid"
             borderColor="#FE875D"
             bg="white"
-            focusBorderColor="teal.500"
-            errorBorderColor="red.400"
+            focusBorderColor="#356288"
+            errorBorderColor="#FE1100"
             borderRadius="6px"
           >
             <option>SSB</option>
@@ -112,8 +112,8 @@ const LogQSOContainer = () => {
             border="2px solid"
             borderColor="#FE875D"
             bg="white"
-            focusBorderColor="teal.500"
-            errorBorderColor="red.400"
+            focusBorderColor="#356288"
+            errorBorderColor="#FE1100"
           >
             <option>1.8 MHz</option>
             <option>3.5 MHz</option>
@@ -137,8 +137,8 @@ const LogQSOContainer = () => {
             border="2px solid"
             borderColor="#FE875D"
             bg="white"
-            focusBorderColor="teal.500"
-            errorBorderColor="red.400"
+            focusBorderColor="#356288"
+            errorBorderColor="#FE1100"
           ></Input>
         </GridItem>
         <GridItem id="sent-signal-input">
@@ -149,8 +149,8 @@ const LogQSOContainer = () => {
             border="2px solid"
             borderColor="#FE875D"
             bg="white"
-            focusBorderColor="teal.500"
-            errorBorderColor="red.400"
+            focusBorderColor="#356288"
+            errorBorderColor="#FE1100"
           ></Input>
         </GridItem>
         <GridItem id="received-signal-input">
@@ -161,8 +161,8 @@ const LogQSOContainer = () => {
             border="2px solid"
             borderColor="#FE875D"
             bg="white"
-            focusBorderColor="teal.500"
-            errorBorderColor="red.400"
+            focusBorderColor="#356288"
+            errorBorderColor="#FE1100"
           ></Input>
         </GridItem>
         <GridItem id="notes" colSpan={4}>
@@ -173,8 +173,8 @@ const LogQSOContainer = () => {
             border="2px solid"
             borderColor="#FE875D"
             bg="white"
-            focusBorderColor="teal.500"
-            errorBorderColor="red.400"
+            focusBorderColor="#356288"
+            errorBorderColor="#FE1100"
           ></Textarea>
         </GridItem>
         <GridItem id="submit-button" colStart={4} colEnd={4}>

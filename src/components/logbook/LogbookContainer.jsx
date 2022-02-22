@@ -1,5 +1,5 @@
 import React from "react";
-// import LogbookTableAPI from "./LogbookTableAPI";
+import LogbookTableAPI from "./LogbookTableAPI";
 import LogbookTable from "./LogbookTable";
 import { VStack, Flex, Spacer, Heading } from "@chakra-ui/react";
 
@@ -20,7 +20,7 @@ const LogbookContainer = (props) => {
             QSO Corner
           </Heading>
         </Flex>
-        <LogbookTable />
+        <LogbookTableAPI />
       </VStack>
     </Flex>
   );
@@ -29,5 +29,5 @@ const LogbookContainer = (props) => {
 export default LogbookContainer;
 
 {
-  /*<LogbookTableAPI />*/
+  /*<LogbookTable />*/
 }

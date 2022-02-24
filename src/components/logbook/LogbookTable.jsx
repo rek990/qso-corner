@@ -123,7 +123,6 @@ const LogbookTable = ({ columns, data }) => {
                     />
                   </ModalBody>
                   <ModalFooter>
-                    */}
                     {/*<Button borderRadius="6px" bg="#FE875D" color="white" mr={3}>
                       Save Note
                       </Button>*/}

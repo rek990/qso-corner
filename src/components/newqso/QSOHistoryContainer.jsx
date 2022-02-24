@@ -1,6 +1,6 @@
 import React from "react";
-// import QSOHistoryTableAPI from "./QSOHistoryTableAPI";
-import QSOHistoryTable from "./QSOHistoryTable";
+import QSOHistoryTableAPI from "./QSOHistoryTableAPI";
+// import QSOHistoryTable from "./QSOHistoryTable";
 import { VStack, Flex, Spacer, Heading } from "@chakra-ui/react";
 
 const QSOHistoryContainer = (props) => {
@@ -36,7 +36,7 @@ const QSOHistoryContainer = (props) => {
             </Heading>
           </Flex>
         </Flex>
-        <QSOHistoryTable />
+        <QSOHistoryTableAPI />
       </VStack>
     </Flex>
   );

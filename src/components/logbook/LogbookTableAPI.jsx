@@ -100,7 +100,7 @@ export default function LogbookTableAPI() {
         ),
       },
     ],
-    [onOpen],
+    [],
   );
 
   useEffect(() => {

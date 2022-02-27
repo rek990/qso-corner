@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   Grid,
   GridItem,
@@ -12,8 +12,89 @@ import {
   Button,
   Spacer,
 } from "@chakra-ui/react";
+//import "../constants.jsx";
+
+const BAND = [
+  {
+    id: 0,
+    band: "160m",
+  },
+  { id: 1, band: "80m" },
+  { id: 2, band: "40m" },
+  { id: 3, band: "30m" },
+  { id: 4, band: "20m" },
+  { id: 5, band: "17m" },
+  { id: 6, band: "15m" },
+  { id: 7, band: "12m" },
+  { id: 8, band: "10m" },
+  { id: 9, band: "6m" },
+  { id: 10, band: "2m" },
+  { id: 11, band: "70cm" },
+];
+
+const MODE = [
+  {
+    id: 0,
+    mode: "SSB",
+  },
+  { id: 1, mode: "CW" },
+  { id: 2, mode: "AM" },
+  { id: 3, mode: "FM" },
+  { id: 4, mode: "RTTY" },
+  { id: 5, mode: "PSK31" },
+  { id: 6, mode: "DSTAR" },
+];
+
+const FREQUENCY = [
+  { id: 0, frequency: "1.8 MHz" },
+  { id: 1, frequency: "3.5 MHz" },
+  { id: 2, frequency: "7 MHz" },
+  { id: 3, frequency: "10.1 MHz" },
+  { id: 4, frequency: "14 MHz" },
+  { id: 5, frequency: "18 MHz" },
+  { id: 6, frequency: "21 MHz" },
+  { id: 7, frequency: "24 MHz" },
+  { id: 8, frequency: "28 MHz" },
+  { id: 10, frequency: "50 MHz" },
+  { id: 11, frequency: "144 MHz" },
+  { id: 12, frequency: "420 MHz" },
+];
 
 const LogQSOContainer = () => {
+  const [callSign, setCallSign] = useState("");
+  const [qsoDate, setQsoDate] = useState("");
+  const [qsoTime, setQsoTime] = useState("");
+  const [meterBand, setMeterBand] = useState(null);
+  const [modeNames, setModeNames] = useState(null);
+  const [frequencyValues, setFrequencyValues] = useState(null);
+  const [power, setPower] = useState("");
+  const [signalSent, setSignalSent] = useState("");
+  const [signalReceived, setSignalReceived] = useState("");
+  const [notes, setNotes] = useState("");
+
+  const handleSubmit = (event) => {
+    console.log("callSign", callSign);
+    console.log("qsoDate", qsoDate);
+    console.log("qsoTime", qsoTime);
+    console.log("power", power);
+    console.log("signalSent", signalSent);
+    console.log("signalReceived", signalReceived);
+    console.log("notes", notes);
+    console.log("meterBand", meterBand);
+    console.log("modeNames", modeNames);
+    console.log("frequencyValues", frequencyValues);
+    setCallSign("");
+    setQsoDate("");
+    setQsoTime("");
+    setPower("");
+    setSignalSent("");
+    setSignalReceived("");
+    setNotes("");
+    setMeterBand("");
+    setModeNames("");
+    setFrequencyValues("");
+  };
+
   return (
     <>
       <Grid
@@ -33,6 +114,10 @@ const LogQSOContainer = () => {
             bg="white"
             focusBorderColor="#356288"
             errorBorderColor="#FE1100"
+            value={callSign}
+            onChange={(event) => {
+              setCallSign(event.target.value);
+            }}
           ></Input>
         </GridItem>
         <GridItem id="date-input">
@@ -45,6 +130,10 @@ const LogQSOContainer = () => {
             bg="white"
             focusBorderColor="#356288"
             errorBorderColor="#FE1100"
+            value={qsoDate}
+            onChange={(event) => {
+              setQsoDate(event.target.value);
+            }}
           ></Input>
         </GridItem>
         <GridItem id="time-input">
@@ -57,6 +146,10 @@ const LogQSOContainer = () => {
             bg="white"
             focusBorderColor="#356288"
             errorBorderColor="#FE1100"
+            value={qsoTime}
+            onChange={(event) => {
+              setQsoTime(event.target.value);
+            }}
           ></Input>
         </GridItem>
         <GridItem id="band-dropdown-menu" colSpan={2}>
@@ -69,19 +162,19 @@ const LogQSOContainer = () => {
             focusBorderColor="#356288"
             errorBorderColor="#FE1100"
             borderRadius="6px"
+            onChange={(event) => {
+              setMeterBand(event.target.value);
+            }}
           >
-            <option>160m</option>
-            <option>80m</option>
-            <option>40m</option>
-            <option>30m</option>
-            <option>20m</option>
-            <option>17m</option>
-            <option>15m</option>
-            <option>12m</option>
-            <option>10m</option>
-            <option>6m</option>
-            <option>2m</option>
-            <option>70cm</option>
+            {BAND.map((meter, index) => {
+              return (
+                <>
+                  <option key={index} value={meter.band}>
+                    {meter.band}
+                  </option>
+                </>
+              );
+            })}
           </Select>
         </GridItem>
         <GridItem id="mode-dropdown-menu" colSpan={2}>
@@ -94,14 +187,19 @@ const LogQSOContainer = () => {
             focusBorderColor="#356288"
             errorBorderColor="#FE1100"
             borderRadius="6px"
+            onChange={(event) => {
+              setModeNames(event.target.value);
+            }}
           >
-            <option>SSB</option>
-            <option>CW</option>
-            <option>AM</option>
-            <option>FM</option>
-            <option>RTTY</option>
-            <option>PSK31</option>
-            <option>DSTAR</option>
+            {MODE.map((modeName, index) => {
+              return (
+                <>
+                  <option key={index} value={modeName.mode}>
+                    {modeName.mode}
+                  </option>
+                </>
+              );
+            })}
           </Select>
         </GridItem>
         <GridItem id="frequency-input">
@@ -114,19 +212,19 @@ const LogQSOContainer = () => {
             bg="white"
             focusBorderColor="#356288"
             errorBorderColor="#FE1100"
+            onChange={(event) => {
+              setFrequencyValues(event.target.value);
+            }}
           >
-            <option>1.8 MHz</option>
-            <option>3.5 MHz</option>
-            <option>7 MHz</option>
-            <option>10.1 MHz</option>
-            <option>14 MHz</option>
-            <option>18 MHz</option>
-            <option>21 MHz</option>
-            <option>24 MHz</option>
-            <option>28 MHz</option>
-            <option>50 MHz</option>
-            <option>144 MHz</option>
-            <option>420 MHz</option>
+            {FREQUENCY.map((frequencyValue, index) => {
+              return (
+                <>
+                  <option key={index} value={frequencyValue.frequency}>
+                    {frequencyValue.frequency}
+                  </option>
+                </>
+              );
+            })}
           </Select>
         </GridItem>
         <GridItem id="power-input">
@@ -139,6 +237,10 @@ const LogQSOContainer = () => {
             bg="white"
             focusBorderColor="#356288"
             errorBorderColor="#FE1100"
+            value={power}
+            onChange={(event) => {
+              setPower(event.target.value);
+            }}
           ></Input>
         </GridItem>
         <GridItem id="sent-signal-input">
@@ -151,6 +253,10 @@ const LogQSOContainer = () => {
             bg="white"
             focusBorderColor="#356288"
             errorBorderColor="#FE1100"
+            value={signalSent}
+            onChange={(event) => {
+              setSignalSent(event.target.value);
+            }}
           ></Input>
         </GridItem>
         <GridItem id="received-signal-input">
@@ -163,6 +269,10 @@ const LogQSOContainer = () => {
             bg="white"
             focusBorderColor="#356288"
             errorBorderColor="#FE1100"
+            value={signalReceived}
+            onChange={(event) => {
+              setSignalReceived(event.target.value);
+            }}
           ></Input>
         </GridItem>
         <GridItem id="notes" colSpan={4}>
@@ -175,10 +285,21 @@ const LogQSOContainer = () => {
             bg="white"
             focusBorderColor="#356288"
             errorBorderColor="#FE1100"
+            value={notes}
+            onChange={(event) => {
+              setNotes(event.target.value);
+            }}
           ></Textarea>
         </GridItem>
         <GridItem id="submit-button" colStart={4} colEnd={4}>
-          <Button type="submit" size="sm" bg="#FE875D" color="white" float="right">
+          <Button
+            type="submit"
+            size="sm"
+            bg="#FE875D"
+            color="white"
+            float="right"
+            onClick={handleSubmit}
+          >
             Submit
           </Button>
         </GridItem>

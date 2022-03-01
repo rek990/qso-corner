@@ -94,7 +94,9 @@ const LogQSOContainer = () => {
     setModeNames("");
     setFrequencyValues("");
   };
-
+  console.log("meterBand", meterBand);
+  console.log("modeNames", modeNames);
+  console.log("frequencyValues", frequencyValues);
   return (
     <>
       <Grid
@@ -155,6 +157,7 @@ const LogQSOContainer = () => {
         <GridItem id="band-dropdown-menu" colSpan={2}>
           <Select
             placeholder="Band"
+            value={meterBand}
             size="sm"
             border="2px solid"
             borderColor="#FE875D"
@@ -180,6 +183,7 @@ const LogQSOContainer = () => {
         <GridItem id="mode-dropdown-menu" colSpan={2}>
           <Select
             placeholder="Mode"
+            value={modeNames}
             size="sm"
             border="2px solid"
             borderColor="#FE875D"
@@ -205,6 +209,7 @@ const LogQSOContainer = () => {
         <GridItem id="frequency-input">
           <Select
             placeholder="Frequency"
+            value={frequencyValues}
             size="sm"
             borderRadius="6px"
             border="2px solid"

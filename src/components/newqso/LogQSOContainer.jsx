@@ -73,6 +73,8 @@ const LogQSOContainer = () => {
   const [notes, setNotes] = useState("");
 
   const handleSubmit = (event) => {
+    event.preventDefault();
+    // these values need to be transferred to the QSOHistoryTable and to a data base (via POST request). See p. 58, green spiral NB, 3.1.2022 for more info
     console.log("callSign", callSign);
     console.log("qsoDate", qsoDate);
     console.log("qsoTime", qsoTime);
@@ -108,6 +110,7 @@ const LogQSOContainer = () => {
       >
         <GridItem id="call-sign-input" colSpan={2}>
           <Input
+            id="call-sign"
             placeholder="Call Sign"
             size="sm"
             borderRadius="6px"
@@ -298,6 +301,7 @@ const LogQSOContainer = () => {
         </GridItem>
         <GridItem id="submit-button" colStart={4} colEnd={4}>
           <Button
+            id="submit-new-qso"
             type="submit"
             size="sm"
             bg="#FE875D"

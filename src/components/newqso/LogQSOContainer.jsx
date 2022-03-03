@@ -61,6 +61,7 @@ const FREQUENCY = [
 ];
 
 const LogQSOContainer = () => {
+  const [qsoNumber, setQsoNumber] = useState(1);
   const [callSign, setCallSign] = useState("");
   const [qsoDate, setQsoDate] = useState("");
   const [qsoTime, setQsoTime] = useState("");
@@ -70,31 +71,61 @@ const LogQSOContainer = () => {
   const [power, setPower] = useState("");
   const [signalSent, setSignalSent] = useState("");
   const [signalReceived, setSignalReceived] = useState("");
+  const [operatorName, setOperatorName] = useState("");
+  const [country, setCountry] = useState("");
+  const [id, setId] = useState(0);
   const [notes, setNotes] = useState("");
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
     // these values need to be transferred to the QSOHistoryTable and to a data base (via POST request). See p. 58, green spiral NB, 3.1.2022 for more info
-    console.log("callSign", callSign);
-    console.log("qsoDate", qsoDate);
-    console.log("qsoTime", qsoTime);
-    console.log("power", power);
-    console.log("signalSent", signalSent);
-    console.log("signalReceived", signalReceived);
-    console.log("notes", notes);
-    console.log("meterBand", meterBand);
-    console.log("modeNames", modeNames);
-    console.log("frequencyValues", frequencyValues);
-    setCallSign("");
-    setQsoDate("");
-    setQsoTime("");
-    setPower("");
-    setSignalSent("");
-    setSignalReceived("");
-    setNotes("");
-    setMeterBand("");
-    setModeNames("");
-    setFrequencyValues("");
+    const qsoDataPerContact = {
+      callSign: callSign,
+      qsoDate: qsoDate,
+      qsoTime: qsoTime,
+      band: meterBand,
+      mode: modeNames,
+      frequency: frequencyValues,
+      // power: power,
+      // sent: signalSent,
+      // received: signalReceived,
+      notes: notes,
+      qsoNumber: qsoNumber,
+      // name: operatorName,
+    };
+    await fetch("http://localhost:3000/qsoHistory", {
+      method: "POST",
+      credentials: "include",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(qsoDataPerContact),
+    })
+      .then((response) => response.json())
+      .then((qsoDataPerContact) => {
+        return qsoDataPerContact.json();
+        setQsoNumber(qsoNumber + 1);
+        console.log("callSign", callSign);
+        console.log("qsoDate", qsoDate);
+        console.log("qsoTime", qsoTime);
+        console.log("power", power);
+        console.log("signalSent", signalSent);
+        console.log("signalReceived", signalReceived);
+        console.log("notes", notes);
+        console.log("meterBand", meterBand);
+        console.log("modeNames", modeNames);
+        console.log("frequencyValues", frequencyValues);
+        setCallSign("");
+        setQsoDate("");
+        setQsoTime("");
+        setPower("");
+        setSignalSent("");
+        setSignalReceived("");
+        setNotes("");
+        setMeterBand("");
+        setModeNames("");
+        setFrequencyValues("");
+      });
   };
   console.log("meterBand", meterBand);
   console.log("modeNames", modeNames);

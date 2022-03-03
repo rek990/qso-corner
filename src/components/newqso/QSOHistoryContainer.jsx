@@ -32,7 +32,7 @@ const QSOHistoryContainer = (props) => {
             alignItems="center"
           >
             <Heading size="lg" color="#AACFDD">
-              Previous QSOs with John Doe
+              QSOs with John Doe
             </Heading>
           </Flex>
         </Flex>

@@ -1,9 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 import QSOHistoryTableAPI from "./QSOHistoryTableAPI";
 // import QSOHistoryTable from "./QSOHistoryTable";
 import { VStack, Flex, Spacer, Heading } from "@chakra-ui/react";
 
-const QSOHistoryContainer = (props) => {
+const QSOHistoryContainer = ({ notes, setNotes }) => {
   return (
     <Flex
       className="main-qso-history-container"
@@ -32,11 +32,11 @@ const QSOHistoryContainer = (props) => {
             alignItems="center"
           >
             <Heading size="lg" color="#AACFDD">
-              QSOs with John Doe
+              Previous QSOs with John Doe
             </Heading>
           </Flex>
         </Flex>
-        <QSOHistoryTableAPI />
+        <QSOHistoryTableAPI notes={notes} setNotes={setNotes} />
       </VStack>
     </Flex>
   );

@@ -64,17 +64,6 @@
       "mode": "FM",
       "band": "2m",
       "notes": "notes 5"
-    },
-    {
-      "callSign": "KO4KVG",
-      "qsoDate": "3.3.2022",
-      "qsoTime": "19:55",
-      "band": "40m",
-      "mode": "SSB",
-      "frequency": "7 MHz",
-      "notes": "Contact in GA",
-      "qsoNumber": 1,
-      "id": 5
     }
   ]
 }

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useCallback } from "react";
 import {
   Grid,
   GridItem,
@@ -60,8 +60,8 @@ const FREQUENCY = [
   { id: 12, frequency: "420 MHz" },
 ];
 
-const LogQSOContainer = () => {
-  const [qsoNumber, setQsoNumber] = useState(1);
+const LogQSOContainer = ({ notes, setNotes, setCells }) => {
+  let [qsoNumber, setQsoNumber] = useState(6);
   const [callSign, setCallSign] = useState("");
   const [qsoDate, setQsoDate] = useState("");
   const [qsoTime, setQsoTime] = useState("");
@@ -74,12 +74,51 @@ const LogQSOContainer = () => {
   const [operatorName, setOperatorName] = useState("");
   const [country, setCountry] = useState("");
   const [id, setId] = useState(0);
-  const [notes, setNotes] = useState("");
+  //const [notes, setNotes] = useState("");
+
+  const addARow = () => {
+    setId(5);
+    setQsoNumber(6);
+    setQsoDate("2022-03-10");
+    setMeterBand("40m");
+    setFrequencyValues("7 MHz");
+    setModeNames("SSB");
+  };
+
+  const getData = useCallback(async () => {
+    const resp = await fetch("http://localhost:3000/qsoHistory");
+    const data = await resp.json();
+    const loadedQSOs = [];
+    for (const key in data) {
+      loadedQSOs.push({
+        id: key,
+        qsoNumber: data[key].qsoNumber,
+        qsoDate: data[key].qsoDate,
+        qsoTime: data[key].qsoTime,
+        band: data[key].band,
+        frequency: data[key].frequency,
+        mode: data[key].mode,
+        notes: data[key].notes,
+      });
+    }
+    //console.log(data);
+    //setCells(data);
+    const addARow = () => {
+      setId(5);
+      setQsoNumber(6);
+      setQsoDate("2022-03-10");
+      setMeterBand("40m");
+      setFrequencyValues("7 MHz");
+      setModeNames("SSB");
+    };
+    setCells(loadedQSOs);
+  });
 
   const handleSubmit = async (event) => {
     event.preventDefault();
     // these values need to be transferred to the QSOHistoryTable and to a data base (via POST request). See p. 58, green spiral NB, 3.1.2022 for more info
     const qsoDataPerContact = {
+      // note that there will need to be a filter on this by call sign
       callSign: callSign,
       qsoDate: qsoDate,
       qsoTime: qsoTime,
@@ -93,19 +132,25 @@ const LogQSOContainer = () => {
       qsoNumber: qsoNumber,
       // name: operatorName,
     };
-    await fetch("http://localhost:3000/qsoHistory", {
+
+    const response = await fetch("http://localhost:3000/qsoHistory", {
       method: "POST",
       credentials: "include",
       headers: {
         "Content-Type": "application/json",
       },
+      // adds resource to be stored
       body: JSON.stringify(qsoDataPerContact),
-    })
-      .then((response) => response.json())
+    });
+    const data = await response.json();
+    console.log(data);
+    /*.then((response) => response.json())
       .then((qsoDataPerContact) => {
-        return qsoDataPerContact.json();
-        setQsoNumber(qsoNumber + 1);
-        console.log("callSign", callSign);
+      console.log(qsoDataPerContact);*/
+    console.log(qsoNumber);
+    setQsoNumber(qsoNumber + 1);
+    console.log(qsoNumber);
+    /*console.log("callSign", callSign);
         console.log("qsoDate", qsoDate);
         console.log("qsoTime", qsoTime);
         console.log("power", power);
@@ -114,22 +159,22 @@ const LogQSOContainer = () => {
         console.log("notes", notes);
         console.log("meterBand", meterBand);
         console.log("modeNames", modeNames);
-        console.log("frequencyValues", frequencyValues);
-        setCallSign("");
-        setQsoDate("");
-        setQsoTime("");
-        setPower("");
-        setSignalSent("");
-        setSignalReceived("");
-        setNotes("");
-        setMeterBand("");
-        setModeNames("");
-        setFrequencyValues("");
-      });
+        console.log("frequencyValues", frequencyValues);*/
+    setCallSign("");
+    setQsoDate("");
+    setQsoTime("");
+    setPower("");
+    setSignalSent("");
+    setSignalReceived("");
+    setNotes("");
+    setMeterBand("");
+    setModeNames("");
+    setFrequencyValues("");
   };
-  console.log("meterBand", meterBand);
-  console.log("modeNames", modeNames);
-  console.log("frequencyValues", frequencyValues);
+
+  // console.log("meterBand", meterBand);
+  // console.log("modeNames", modeNames);
+  // console.log("frequencyValues", frequencyValues);
   return (
     <>
       <Grid
@@ -331,17 +376,29 @@ const LogQSOContainer = () => {
           ></Textarea>
         </GridItem>
         <GridItem id="submit-button" colStart={4} colEnd={4}>
-          <Button
-            id="submit-new-qso"
-            type="submit"
-            size="sm"
-            bg="#FE875D"
-            color="white"
-            float="right"
-            onClick={handleSubmit}
-          >
-            Submit
-          </Button>
+          <HStack>
+            <Button
+              id="submit-new-qso"
+              type="submit"
+              size="sm"
+              bg="#FE875D"
+              color="white"
+              float="right"
+              onClick={handleSubmit}
+            >
+              Submit
+            </Button>
+            <Button
+              id="update-qso-history-table"
+              size="sm"
+              bg="#FE875D"
+              color="white"
+              float="right"
+              onClick={getData}
+            >
+              Update Table
+            </Button>
+          </HStack>
         </GridItem>
       </Grid>
     </>

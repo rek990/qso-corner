@@ -1,4 +1,4 @@
-import React, { useMemo } from "react";
+import React, { useMemo, useState } from "react";
 import TableScrollbar from "react-table-scrollbar";
 import {
   Button,
@@ -43,10 +43,22 @@ import {
   useFlexLayout,
   useRowSelect,
 } from "react-table";
-
 import GlobalFilter from "../logbook/GlobalFilter";
 
-const QSOHistoryTable = ({ data }) => {
+/*const newTableRow = [
+  {
+    id: 5,
+    qsoNumber: "6",
+    qsoDate: "2022-03-10",
+    qsoTime: "16:17",
+    band: "40m",
+    frequency: "7 MHz",
+    mode: "SSB",
+    notes: "notes 6",
+  },
+];*/
+
+const QSOHistoryTable = ({ data, notes, setNotes }) => {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const columns = useMemo(
     () => [
@@ -138,14 +150,17 @@ const QSOHistoryTable = ({ data }) => {
     usePagination,
     useRowSelect,
   );
-
+  const [testNotes, setTestNotes] = useState("notes");
+  const updateNotes = (event) => {
+    setTestNotes(event.target.value);
+  };
   return (
     <>
       <Flex className="main-qso-history-table-container" direction="column" width="75vw">
         <Flex justifyContent="center">
           <GlobalFilter filter={globalFilter} setFilter={setGlobalFilter} />
         </Flex>
-        <br />
+
         <TableScrollbar>
           <Table className="table" bg="#FE875D" variant="striped" {...getTableProps()}>
             <Thead>
@@ -180,6 +195,8 @@ const QSOHistoryTable = ({ data }) => {
                       focusBorderColor="#FE875D"
                       borderColor="#356288"
                       placeholder="Add notes about QSO Contact here"
+                      value={notes}
+                      onChange={updateNotes}
                     />
                   </ModalBody>
                   <ModalFooter>

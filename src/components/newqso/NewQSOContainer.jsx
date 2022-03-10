@@ -1,10 +1,12 @@
-import React from "react";
+import React, { useState } from "react";
 import { Grid, GridItem, Heading, Flex, Spacer, VStack } from "@chakra-ui/react";
 import LogQSOContainer from "./LogQSOContainer";
 import QSOHistoryContainer from "./QSOHistoryContainer";
 import QRZAPIContainer from "./QRZAPIContainer";
 
 const NewQSOContainer = () => {
+  //const [callSign, setCallSign] = useState("");
+  const [notes, setNotes] = useState("");
   return (
     <>
       <Grid
@@ -32,14 +34,14 @@ const NewQSOContainer = () => {
               </Heading>
             </Flex>
             <br />
-            <LogQSOContainer />
+            <LogQSOContainer notes={notes} setNotes={setNotes} />
           </VStack>
         </GridItem>
         <GridItem id="qrz-api-info" bg="#AACFDD" width="443px" height="380px">
           <QRZAPIContainer />
         </GridItem>
         <GridItem id="qso-contact-history-table" bg="#AACFDD" colSpan={2} height="450px">
-          <QSOHistoryContainer />
+          <QSOHistoryContainer notes={notes} setNotes={setNotes} />
         </GridItem>
       </Grid>
     </>

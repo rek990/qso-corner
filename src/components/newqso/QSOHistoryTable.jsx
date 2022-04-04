@@ -113,7 +113,7 @@ const QSOHistoryTable = ({ data, notes, setNotes }) => {
         maxWidth: 200,
         Cell: ({ cell }) => (
           <Button size="xs" borderRadius="6px" bg="#356288" color="white" onClick={onOpen}>
-            Show Notes
+            Add Notes
           </Button>
         ),
       },
@@ -196,7 +196,7 @@ const QSOHistoryTable = ({ data, notes, setNotes }) => {
                       borderColor="#356288"
                       placeholder="Add notes about QSO Contact here"
                       value={notes}
-                      onChange={updateNotes}
+                      onChange={(event) => setNotes(event.target.value)}
                     />
                   </ModalBody>
                   <ModalFooter>

@@ -25,6 +25,15 @@ import {
   ModalCloseButton,
   useDisclosure,
   Textarea,
+  Popover,
+  PopoverTrigger,
+  PopoverContent,
+  PopoverHeader,
+  PopoverBody,
+  PopoverFooter,
+  PopoverArrow,
+  PopoverCloseButton,
+  PopoverAnchor,
 } from "@chakra-ui/react";
 import {
   ChevronLeftIcon,
@@ -116,6 +125,21 @@ const QSOHistoryTable = ({ data, notes, setNotes }) => {
             Add Notes
           </Button>
         ),
+        /*Cell: ({ cell }) => (
+          <Popover>
+          <PopoverTrigger>
+          <Button size="xs" borderRadius="6px" bg="#356288" color="white" onClick={onOpen}>
+            Add Notes
+          </Button>
+          </PopoverTrigger>
+          <PopoverContent>
+            <PopoverArrow />
+            <PopoverCloseButton />
+            <PopoverHeader>Add QSO Contact Notes</PopoverHeader>
+            <PopoverBody>{notes}</PopoverBody>
+          </PopoverContent>
+        </Popover>
+                  ),*/
       },
     ],
     [],
@@ -150,10 +174,12 @@ const QSOHistoryTable = ({ data, notes, setNotes }) => {
     usePagination,
     useRowSelect,
   );
-  const [testNotes, setTestNotes] = useState("notes");
-  const updateNotes = (event) => {
+  console.log("notes", notes);
+  const [testNotes, setTestNotes] = useState(notes);
+  console.log("testNotes",testNotes);
+  /*const updateNotes = (event) => {
     setTestNotes(event.target.value);
-  };
+  };*/
   return (
     <>
       <Flex className="main-qso-history-table-container" direction="column" width="75vw">
@@ -185,30 +211,29 @@ const QSOHistoryTable = ({ data, notes, setNotes }) => {
                 </Tr>
               ))}
               <Modal isOpen={isOpen} onClose={onClose}>
-                <ModalOverlay />
-                <ModalContent bg="#356288">
-                  <ModalHeader color="#AACFDD">QSO Notes</ModalHeader>
-                  <ModalBody>
-                    <Textarea
-                      bg="#C8E0E9"
-                      border="2px solid"
-                      focusBorderColor="#FE875D"
-                      borderColor="#356288"
-                      placeholder="Add notes about QSO Contact here"
-                      value={notes}
-                      onChange={(event) => setNotes(event.target.value)}
-                    />
-                  </ModalBody>
-                  <ModalFooter>
-                    {/*<Button borderRadius="6px" bg="#FE875D" color="white" mr={3}>
-                      Save Note
-                      </Button>*/}
-                    <Button borderRadius="6px" bg="#FE875D" color="white" onClick={onClose}>
-                      Close
-                    </Button>
-                  </ModalFooter>
-                </ModalContent>
-              </Modal>
+<ModalOverlay />
+<ModalContent bg="#356288">
+  <ModalHeader color="#AACFDD">QSO Notes</ModalHeader>
+  <ModalBody>
+    <Textarea
+      bg="#C8E0E9"
+      border="2px solid"
+      focusBorderColor="#FE875D"
+      borderColor="#356288"
+      placeholder="Add notes about QSO Contact here"
+      value={testNotes}/>
+    {/*onChange={(event) => setNotes(event.target.value)}*/}
+  </ModalBody>
+  <ModalFooter>
+    {/*<Button borderRadius="6px" bg="#FE875D" color="white" mr={3}>
+      Save Note
+      </Button>*/}
+    <Button borderRadius="6px" bg="#FE875D" color="white" onClick={onClose}>
+      Close
+    </Button>
+  </ModalFooter>
+</ModalContent>
+</Modal>
             </Thead>
             <Tbody {...getTableBodyProps()}>
               {page.map((row, i) => {
@@ -334,3 +359,4 @@ const QSOHistoryTable = ({ data, notes, setNotes }) => {
 };
 
 export default QSOHistoryTable;
+

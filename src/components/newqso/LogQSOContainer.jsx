@@ -167,6 +167,7 @@ const LogQSOContainer = ({ notes, setNotes, setCells }) => {
     setSignalSent("");
     setSignalReceived("");
     setNotes("");
+    console.log(notes);
     setMeterBand("");
     setModeNames("");
     setFrequencyValues("");

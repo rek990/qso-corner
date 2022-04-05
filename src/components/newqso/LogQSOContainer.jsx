@@ -60,7 +60,7 @@ const FREQUENCY = [
   { id: 12, frequency: "420 MHz" },
 ];
 
-const LogQSOContainer = ({ notes, setNotes, setCells }) => {
+const LogQSOContainer = ({ notes, setNotes, setCells, renderedNotes, setRenderedNotes }) => {
   let [qsoNumber, setQsoNumber] = useState(6);
   const [callSign, setCallSign] = useState("");
   const [qsoDate, setQsoDate] = useState("");
@@ -74,7 +74,7 @@ const LogQSOContainer = ({ notes, setNotes, setCells }) => {
   const [operatorName, setOperatorName] = useState("");
   const [country, setCountry] = useState("");
   const [id, setId] = useState(0);
-  //const [notes, setNotes] = useState("");
+  //const [renderedNotes, setRenderedNotes] = useState("");
 
   const addARow = () => {
     setId(5);
@@ -166,8 +166,10 @@ const LogQSOContainer = ({ notes, setNotes, setCells }) => {
     setPower("");
     setSignalSent("");
     setSignalReceived("");
+    setRenderedNotes(qsoDataPerContact.notes);
+    console.log("renderedNotes", renderedNotes);
     setNotes("");
-    console.log(notes);
+    console.log(renderedNotes);
     setMeterBand("");
     setModeNames("");
     setFrequencyValues("");

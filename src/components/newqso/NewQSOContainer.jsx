@@ -4,7 +4,7 @@ import LogQSOContainer from "./LogQSOContainer";
 import QSOHistoryContainer from "./QSOHistoryContainer";
 import QRZAPIContainer from "./QRZAPIContainer";
 
-const NewQSOContainer = ({notes, setNotes}) => {
+const NewQSOContainer = ({notes, setNotes, renderedNotes, setRenderedNotes}) => {
   //const [callSign, setCallSign] = useState("");
   //const [notes, setNotes] = useState("");
   return (
@@ -34,14 +34,14 @@ const NewQSOContainer = ({notes, setNotes}) => {
               </Heading>
             </Flex>
             <br />
-            <LogQSOContainer notes={notes} setNotes={setNotes} />
+            <LogQSOContainer notes={notes} setNotes={setNotes} renderedNotes={renderedNotes} setRenderedNotes={setRenderedNotes}/>
           </VStack>
         </GridItem>
         <GridItem id="qrz-api-info" bg="#AACFDD" width="443px" height="380px">
           <QRZAPIContainer />
         </GridItem>
         <GridItem id="qso-contact-history-table" bg="#AACFDD" colSpan={2} height="450px">
-          <QSOHistoryContainer notes={notes} setNotes={setNotes} />
+          <QSOHistoryContainer notes={notes} setNotes={setNotes} renderedNotes={renderedNotes} setRenderedNotes={setRenderedNotes} />
         </GridItem>
       </Grid>
     </>

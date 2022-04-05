@@ -67,8 +67,9 @@ import GlobalFilter from "../logbook/GlobalFilter";
   },
 ];*/
 
-const QSOHistoryTable = ({ data, notes, setNotes }) => {
+const QSOHistoryTable = ({ data, notes, setNotes, renderedNotes, setRenderedNotes }) => {
   const { isOpen, onOpen, onClose } = useDisclosure();
+  console.log("notes", notes);
   const columns = useMemo(
     () => [
       {
@@ -120,26 +121,11 @@ const QSOHistoryTable = ({ data, notes, setNotes }) => {
         minWidth: 30,
         width: 150,
         maxWidth: 200,
-        Cell: ({ cell }) => (
-          <Button size="xs" borderRadius="6px" bg="#356288" color="white" onClick={onOpen}>
-            Add Notes
-          </Button>
-        ),
         /*Cell: ({ cell }) => (
-          <Popover>
-          <PopoverTrigger>
           <Button size="xs" borderRadius="6px" bg="#356288" color="white" onClick={onOpen}>
             Add Notes
           </Button>
-          </PopoverTrigger>
-          <PopoverContent>
-            <PopoverArrow />
-            <PopoverCloseButton />
-            <PopoverHeader>Add QSO Contact Notes</PopoverHeader>
-            <PopoverBody>{notes}</PopoverBody>
-          </PopoverContent>
-        </Popover>
-                  ),*/
+        ),*/
       },
     ],
     [],
@@ -221,7 +207,7 @@ const QSOHistoryTable = ({ data, notes, setNotes }) => {
       focusBorderColor="#FE875D"
       borderColor="#356288"
       placeholder="Add notes about QSO Contact here"
-      value={testNotes}/>
+      value={renderedNotes}/>
     {/*onChange={(event) => setNotes(event.target.value)}*/}
   </ModalBody>
   <ModalFooter>

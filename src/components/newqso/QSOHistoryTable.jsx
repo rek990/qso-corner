@@ -161,7 +161,7 @@ const QSOHistoryTable = ({ data, notes, setNotes, renderedNotes, setRenderedNote
     useRowSelect,
   );
   console.log("notes", notes);
-  const [testNotes, setTestNotes] = useState(notes);
+  const [testNotes, setTestNotes] = useState(renderedNotes);
   console.log("testNotes",testNotes);
   /*const updateNotes = (event) => {
     setTestNotes(event.target.value);
@@ -207,7 +207,7 @@ const QSOHistoryTable = ({ data, notes, setNotes, renderedNotes, setRenderedNote
       focusBorderColor="#FE875D"
       borderColor="#356288"
       placeholder="Add notes about QSO Contact here"
-      value={renderedNotes}/>
+      value={testNotes}/>
     {/*onChange={(event) => setNotes(event.target.value)}*/}
   </ModalBody>
   <ModalFooter>

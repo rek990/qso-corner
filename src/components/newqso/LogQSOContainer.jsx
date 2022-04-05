@@ -166,7 +166,7 @@ const LogQSOContainer = ({ notes, setNotes, setCells, renderedNotes, setRendered
     setPower("");
     setSignalSent("");
     setSignalReceived("");
-    setRenderedNotes(qsoDataPerContact.notes);
+    setRenderedNotes(notes);
     console.log("renderedNotes", renderedNotes);
     setNotes("");
     console.log(renderedNotes);

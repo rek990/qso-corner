@@ -3,10 +3,11 @@ import { Flex, Heading } from "@chakra-ui/react";
 import LogbookContainer from "./logbook/LogbookContainer";
 // import axiosInstance from "./authentication/authApi";
 
-const MainContainerQSO = (props) => {
+const MainContainerQSO = ({notes, setNotes}) => {
   // state variables
   // stateless variables
   //const setDataError = props.setDataError;
+
 
   // When the QSO log history has been established and stored in the database on the backend, a useEffect() will be needed to include a GET request that retrieves this data.
   return (
@@ -18,7 +19,7 @@ const MainContainerQSO = (props) => {
       justifyContent="center"
       alignItems="center"
     >
-      <LogbookContainer />
+      <LogbookContainer notes={notes} setNotes={setNotes}/>
     </Flex>
   );
 };

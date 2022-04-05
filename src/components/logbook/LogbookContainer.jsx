@@ -3,7 +3,7 @@ import LogbookTableAPI from "./LogbookTableAPI";
 // import LogbookTable from "./LogbookTable";
 import { VStack, Flex, Spacer, Heading } from "@chakra-ui/react";
 
-const LogbookContainer = (props) => {
+const LogbookContainer = ({notes, setNotes}) => {
   return (
     <Flex direction="row" width="100%">
       <VStack>
@@ -20,7 +20,7 @@ const LogbookContainer = (props) => {
             QSO Corner
           </Heading>
         </Flex>
-        <LogbookTableAPI />
+        <LogbookTableAPI notes={notes} setNotes={setNotes}/>
       </VStack>
     </Flex>
   );

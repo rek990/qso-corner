@@ -46,7 +46,7 @@ import {
 
 import GlobalFilter from "./GlobalFilter";
 
-const LogbookTable = ({ data }) => {
+const LogbookTable = ({ data, notes, setNotes }) => {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const columns = useMemo(
     () => [

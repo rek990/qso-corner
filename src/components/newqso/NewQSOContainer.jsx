@@ -4,9 +4,9 @@ import LogQSOContainer from "./LogQSOContainer";
 import QSOHistoryContainer from "./QSOHistoryContainer";
 import QRZAPIContainer from "./QRZAPIContainer";
 
-const NewQSOContainer = () => {
+const NewQSOContainer = ({notes, setNotes}) => {
   //const [callSign, setCallSign] = useState("");
-  const [notes, setNotes] = useState("");
+  //const [notes, setNotes] = useState("");
   return (
     <>
       <Grid

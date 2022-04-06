@@ -85,7 +85,7 @@ const LogQSOContainer = ({ notes, setNotes, setCells, renderedNotes, setRendered
     setModeNames("SSB");
   };
 
-  const getData = useCallback(async () => {
+  /*const getData = useCallback(async () => {
     const resp = await fetch("http://localhost:3000/qsoHistory");
     const data = await resp.json();
     const loadedQSOs = [];
@@ -101,7 +101,7 @@ const LogQSOContainer = ({ notes, setNotes, setCells, renderedNotes, setRendered
         notes: data[key].notes,
       });
     }
-    //console.log(data);
+    console.log(data);
     //setCells(data);
     const addARow = () => {
       setId(5);
@@ -112,7 +112,7 @@ const LogQSOContainer = ({ notes, setNotes, setCells, renderedNotes, setRendered
       setModeNames("SSB");
     };
     setCells(loadedQSOs);
-  });
+  });*/
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -132,6 +132,7 @@ const LogQSOContainer = ({ notes, setNotes, setCells, renderedNotes, setRendered
       qsoNumber: qsoNumber,
       // name: operatorName,
     };
+    console.log(qsoDataPerContact.notes);
 
     const response = await fetch("http://localhost:3000/qsoHistory", {
       method: "POST",
@@ -391,7 +392,7 @@ const LogQSOContainer = ({ notes, setNotes, setCells, renderedNotes, setRendered
             >
               Submit
             </Button>
-            <Button
+            {/*<Button
               id="update-qso-history-table"
               size="sm"
               bg="#FE875D"
@@ -400,7 +401,7 @@ const LogQSOContainer = ({ notes, setNotes, setCells, renderedNotes, setRendered
               onClick={getData}
             >
               Update Table
-            </Button>
+            </Button>*/}
           </HStack>
         </GridItem>
       </Grid>

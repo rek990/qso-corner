@@ -70,6 +70,20 @@ import GlobalFilter from "../logbook/GlobalFilter";
 const QSOHistoryTable = ({ data, notes, setNotes, renderedNotes, setRenderedNotes }) => {
   const { isOpen, onOpen, onClose } = useDisclosure();
   console.log("notes", notes);
+  // setNotes("Where are you?");
+  console.log("notes", notes);
+  //console.log(data[key].notes);
+  console.log("data", data);
+  //console.log(data[0].notes);
+  console.log(data.length);
+  const getNotes = () => {
+    //onOpen();
+    for (let i = 0; i < data.length; i++) {
+      //console.log(data[i].notes);
+      return data[i].notes;
+    }
+  }
+
   const columns = useMemo(
     () => [
       {
@@ -121,11 +135,11 @@ const QSOHistoryTable = ({ data, notes, setNotes, renderedNotes, setRenderedNote
         minWidth: 30,
         width: 150,
         maxWidth: 200,
-        /*Cell: ({ cell }) => (
+        Cell: ({ cell }) => (
           <Button size="xs" borderRadius="6px" bg="#356288" color="white" onClick={onOpen}>
             Add Notes
           </Button>
-        ),*/
+        ),
       },
     ],
     [],
@@ -160,12 +174,13 @@ const QSOHistoryTable = ({ data, notes, setNotes, renderedNotes, setRenderedNote
     usePagination,
     useRowSelect,
   );
-  console.log("notes", notes);
-  const [testNotes, setTestNotes] = useState(renderedNotes);
-  console.log("testNotes",testNotes);
+  // console.log("notes", notes);
+  // const [testNotes, setTestNotes] = useState(renderedNotes);
+  // console.log("testNotes",testNotes);
   /*const updateNotes = (event) => {
     setTestNotes(event.target.value);
   };*/
+  const [testNotes, setTestNotes] = useState("This is a test");
   return (
     <>
       <Flex className="main-qso-history-table-container" direction="column" width="75vw">
@@ -207,7 +222,7 @@ const QSOHistoryTable = ({ data, notes, setNotes, renderedNotes, setRenderedNote
       focusBorderColor="#FE875D"
       borderColor="#356288"
       placeholder="Add notes about QSO Contact here"
-      value={testNotes}/>
+      value={getNotes()}/>
     {/*onChange={(event) => setNotes(event.target.value)}*/}
   </ModalBody>
   <ModalFooter>

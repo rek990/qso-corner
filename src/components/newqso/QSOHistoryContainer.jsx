@@ -4,6 +4,7 @@ import QSOHistoryTableAPI from "./QSOHistoryTableAPI";
 import { VStack, Flex, Spacer, Heading } from "@chakra-ui/react";
 
 const QSOHistoryContainer = ({ notes, setNotes }) => {
+  console.log(notes);
   return (
     <Flex
       className="main-qso-history-container"

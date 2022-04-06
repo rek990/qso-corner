@@ -6,6 +6,7 @@ import NewQSOContainer from "./newqso/NewQSOContainer";
 
 const QSORoutes = (props) => {
   const [notes, setNotes] = useState("");
+  console.log(notes);
   const [renderedNotes, setRenderedNotes] = useState("");
   const setDataError = props.setDataError;
 

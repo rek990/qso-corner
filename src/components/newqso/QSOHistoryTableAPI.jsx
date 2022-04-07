@@ -93,6 +93,7 @@ export default function QSOHistoryTableAPI({ notes, setNotes }) {
     }*/
     setCells(data);
     console.log(data);
+    console.log(cells);
     // console.log(loadedQSOs);
     // console.log(loadedQSOs.notes);
     // setCells(loadedQSOs);

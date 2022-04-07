@@ -121,16 +121,23 @@ const QSOHistoryTable = ({ data, notes, setNotes, renderedNotes, setRenderedNote
     
     
     console.log(datum.notes);  
+    let renderedNotes = [];
+    renderedNotes.push(datum.notes);
+    console.log(renderedNotes);
+    //return renderedNotes;
     
        
       return(<>
+     
       <Textarea
       bg="#C8E0E9"
       border="2px solid"
       focusBorderColor="#FE875D"
       borderColor="#356288"
       placeholder="Add notes about QSO Contact here"
-      value={datum.notes}/></>)
+      value={datum.notes}/>
+      
+     </>);
        
      
   
@@ -252,7 +259,7 @@ const QSOHistoryTable = ({ data, notes, setNotes, renderedNotes, setRenderedNote
             <Thead>
               {headerGroups.map((headerGroup) => (
                 <Tr {...headerGroup.getHeaderGroupProps()}>
-                  {headerGroup.headers.map((column) => (
+                                  {headerGroup.headers.map((column) => (
                     // Add the sorting props to control sorting
                     <Th {...column.getHeaderProps(column.getSortByToggleProps())}>
                       {column.render("Header")}

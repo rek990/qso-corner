@@ -76,13 +76,48 @@ const QSOHistoryTable = ({ data, notes, setNotes, renderedNotes, setRenderedNote
   console.log("data", data);
   //console.log(data[0].notes);
   console.log(data.length);
-  const getNotes = () => {
-    //onOpen();
-    for (let i = 0; i < data.length; i++) {
-      //console.log(data[i].notes);
+  
+  //let getNotes;
+  /*for (let i = 0; i < data.length; i++) {
+    getNotes = () => {
       return data[i].notes;
     }
-  }
+  }*/
+  let i = 0;
+  let textArea = [];
+  
+
+  const loadedQSOs = [];
+  let key;
+  let myNotes;
+  const getNotes = () => {
+    //onOpen();
+    /*for (let i = 0; i < data.length; i++) {
+      *///textArea.push(data[i].notes);
+    //return data[i].notes;
+  //return textArea;
+    
+    //return data[i].notes;
+    for (key in data) {
+      loadedQSOs.push({
+        id: key,
+        qsoNumber: data[key].qsoNumber,
+        qsoDate: data[key].qsoDate,
+        qsoTime: data[key].qsoTime,
+        band: data[key].band,
+        frequency: data[key].frequency,
+        mode: data[key].mode,
+        notes: data[key].notes,
+      });
+      console.log(data[key].notes);
+      myNotes = data[key].notes;
+      return myNotes;
+    }
+  
+}  
+    console.log(myNotes);
+
+    
 
   const columns = useMemo(
     () => [
@@ -216,13 +251,13 @@ const QSOHistoryTable = ({ data, notes, setNotes, renderedNotes, setRenderedNote
 <ModalContent bg="#356288">
   <ModalHeader color="#AACFDD">QSO Notes</ModalHeader>
   <ModalBody>
-    <Textarea
-      bg="#C8E0E9"
-      border="2px solid"
-      focusBorderColor="#FE875D"
-      borderColor="#356288"
-      placeholder="Add notes about QSO Contact here"
-      value={getNotes()}/>
+  <Textarea
+    bg="#C8E0E9"
+    border="2px solid"
+    focusBorderColor="#FE875D"
+    borderColor="#356288"
+    placeholder="Add notes about QSO Contact here"
+    value={getNotes()}/>
     {/*onChange={(event) => setNotes(event.target.value)}*/}
   </ModalBody>
   <ModalFooter>

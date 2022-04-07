@@ -90,7 +90,7 @@ const QSOHistoryTable = ({ data, notes, setNotes, renderedNotes, setRenderedNote
   const loadedQSOs = [];
   let key;
   let myNotes;
-  const getNotes = () => {
+  /*const getNotes = () => {
     //onOpen();
     /*for (let i = 0; i < data.length; i++) {
       *///textArea.push(data[i].notes);
@@ -98,7 +98,7 @@ const QSOHistoryTable = ({ data, notes, setNotes, renderedNotes, setRenderedNote
   //return textArea;
     
     //return data[i].notes;
-    for (key in data) {
+    /*for (key in data) {
       loadedQSOs.push({
         id: key,
         qsoNumber: data[key].qsoNumber,
@@ -115,9 +115,27 @@ const QSOHistoryTable = ({ data, notes, setNotes, renderedNotes, setRenderedNote
     }
   
 }  
-    console.log(myNotes);
+    console.log(myNotes);*/
 
+  const dataNotes = data.map((datum, i) => {
+    console.log(datum.notes);  
+    return(
+        <>
+      <Textarea
+      bg="#C8E0E9"
+      border="2px solid"
+      focusBorderColor="#FE875D"
+      borderColor="#356288"
+      placeholder="Add notes about QSO Contact here"
+      value={datum.notes}/>
+        {/*onChange={(event) => setNotes(event.target.value)}*/}
+     
+  </>
+    );})
     
+  console.log(dataNotes);  
+    
+
 
   const columns = useMemo(
     () => [
@@ -170,7 +188,7 @@ const QSOHistoryTable = ({ data, notes, setNotes, renderedNotes, setRenderedNote
         minWidth: 30,
         width: 150,
         maxWidth: 200,
-        Cell: ({ cell }) => (
+        Cell: ({ data }) => (
           <Button size="xs" borderRadius="6px" bg="#356288" color="white" onClick={onOpen}>
             Add Notes
           </Button>
@@ -246,30 +264,26 @@ const QSOHistoryTable = ({ data, notes, setNotes, renderedNotes, setRenderedNote
                   ))}
                 </Tr>
               ))}
-              <Modal isOpen={isOpen} onClose={onClose}>
-<ModalOverlay />
-<ModalContent bg="#356288">
-  <ModalHeader color="#AACFDD">QSO Notes</ModalHeader>
-  <ModalBody>
-  <Textarea
-    bg="#C8E0E9"
-    border="2px solid"
-    focusBorderColor="#FE875D"
-    borderColor="#356288"
-    placeholder="Add notes about QSO Contact here"
-    value={getNotes()}/>
-    {/*onChange={(event) => setNotes(event.target.value)}*/}
-  </ModalBody>
-  <ModalFooter>
-    {/*<Button borderRadius="6px" bg="#FE875D" color="white" mr={3}>
-      Save Note
-      </Button>*/}
-    <Button borderRadius="6px" bg="#FE875D" color="white" onClick={onClose}>
-      Close
-    </Button>
-  </ModalFooter>
-</ModalContent>
-</Modal>
+             
+              <Modal isOpen={isOpen} onClose={onClose}>         
+    <ModalOverlay />
+    <ModalContent bg="#356288">
+      <ModalHeader color="#AACFDD">QSO Notes</ModalHeader>
+      <ModalBody>
+     {dataNotes}
+        {/*onChange={(event) => setNotes(event.target.value)}*/}
+      </ModalBody>
+      <ModalFooter>
+        {/*<Button borderRadius="6px" bg="#FE875D" color="white" mr={3}>
+          Save Note
+          </Button>*/}
+        <Button borderRadius="6px" bg="#FE875D" color="white" onClick={onClose}>
+          Close
+        </Button>
+      </ModalFooter>
+    </ModalContent>
+    </Modal>
+            
             </Thead>
             <Tbody {...getTableBodyProps()}>
               {page.map((row, i) => {

@@ -34,6 +34,7 @@ import {
   PopoverArrow,
   PopoverCloseButton,
   PopoverAnchor,
+  FormControl,
 } from "@chakra-ui/react";
 import {
   ChevronLeftIcon,
@@ -122,14 +123,14 @@ const QSOHistoryTable = ({ data, notes, setNotes, renderedNotes, setRenderedNote
     
     
     console.log(datum.notes);  
-    //return datum.notes;
+    return datum.notes;
     let renderedNotes = [];
     renderedNotes.push(datum.notes);
     console.log(renderedNotes);
     //return renderedNotes;
     
        
-      return(<>
+      /*return(<>
      
       <Textarea
       bg="#C8E0E9"
@@ -137,9 +138,9 @@ const QSOHistoryTable = ({ data, notes, setNotes, renderedNotes, setRenderedNote
       focusBorderColor="#FE875D"
       borderColor="#356288"
       placeholder="Add notes about QSO Contact here"
-      value={datum.notes}/>
-      
-     </>);
+      value={datum.notes}
+      />
+     </>);*/
        
      
   
@@ -215,11 +216,11 @@ const QSOHistoryTable = ({ data, notes, setNotes, renderedNotes, setRenderedNote
 
       {
         Header: "Notes",
-        accessor: "notes",
+        //accessor: "notes",
         minWidth: 30,
         width: 150,
         maxWidth: 200,
-        Cell: ({ data }) => (
+        Cell: ({ cell }) => (
           <Button size="xs" borderRadius="6px" bg="#356288" color="white" onClick={onOpen}>
             Add Notes
           </Button>
@@ -295,13 +296,26 @@ const QSOHistoryTable = ({ data, notes, setNotes, renderedNotes, setRenderedNote
                   ))}
                 </Tr>
               ))}
-             
+            <FormControl>
               <Modal isOpen={isOpen} onClose={onClose}>         
     <ModalOverlay />
     <ModalContent bg="#356288">
       <ModalHeader color="#AACFDD">QSO Notes</ModalHeader>
       <ModalBody>
-     {dataNotes}
+      {dataNotes.map((key, index) => {
+        
+        return(
+         <>
+         
+        
+          <Textarea
+      bg="#C8E0E9"
+      border="2px solid"
+      focusBorderColor="#FE875D"
+      borderColor="#356288"
+      placeholder="Add notes about QSO Contact here"
+      value={key}
+      /></>);})}
         {/*onChange={(event) => setNotes(event.target.value)}*/}
       </ModalBody>
       <ModalFooter>
@@ -314,7 +328,7 @@ const QSOHistoryTable = ({ data, notes, setNotes, renderedNotes, setRenderedNote
       </ModalFooter>
     </ModalContent>
     </Modal>
-            
+  </FormControl>          
             </Thead>
             <Tbody {...getTableBodyProps()}>
               {page.map((row, i) => {

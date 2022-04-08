@@ -117,10 +117,12 @@ const QSOHistoryTable = ({ data, notes, setNotes, renderedNotes, setRenderedNote
 }  
     console.log(myNotes);*/
 
-  const dataNotes = data.map((datum, i) => {
+  const dataNotes =  
+    data.map((datum, i) => {
     
     
     console.log(datum.notes);  
+    //return datum.notes;
     let renderedNotes = [];
     renderedNotes.push(datum.notes);
     console.log(renderedNotes);
@@ -143,10 +145,26 @@ const QSOHistoryTable = ({ data, notes, setNotes, renderedNotes, setRenderedNote
   
  
     })
+    
+   
+    
+  console.log(dataNotes[i]);
 
-    
-    
-  //console.log(dataNotes);  
+  /*const getDataNotes = dataNotes.forEach((x, index) => {
+    return (<>
+     
+      <Textarea
+      bg="#C8E0E9"
+      border="2px solid"
+      focusBorderColor="#FE875D"
+      borderColor="#356288"
+      placeholder="Add notes about QSO Contact here"
+      value={x}/>
+      
+     </>);
+  }); */
+  
+  
     
 
 

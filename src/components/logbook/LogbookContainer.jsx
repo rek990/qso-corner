@@ -1,6 +1,5 @@
 import React from "react";
 import LogbookTableAPI from "./LogbookTableAPI";
-// import LogbookTable from "./LogbookTable";
 import { VStack, Flex, Spacer, Heading } from "@chakra-ui/react";
 
 const LogbookContainer = ({notes, setNotes, renderedNotes, setRenderedNotes}) => {
@@ -28,6 +27,4 @@ const LogbookContainer = ({notes, setNotes, renderedNotes, setRenderedNotes}) =>
 
 export default LogbookContainer;
 
-{
-  /*<LogbookTable />*/
-}
+

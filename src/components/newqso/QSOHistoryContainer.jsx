@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import QSOHistoryTableAPI from "./QSOHistoryTableAPI";
-// import QSOHistoryTable from "./QSOHistoryTable";
 import { VStack, Flex, Spacer, Heading } from "@chakra-ui/react";
 
 const QSOHistoryContainer = ({ notes, setNotes }) => {

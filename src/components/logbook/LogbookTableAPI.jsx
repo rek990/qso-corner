@@ -31,8 +31,4 @@ export default function LogbookTableAPI({notes, setNotes, renderedNotes, setRend
   return <>{cells && <LogbookTable data={data} notes={notes} setNotes={setNotes} renderedNotes={renderedNotes} setRenderedNotes={setRenderedNotes}/>}</>;
 }
 
-//export default LogbookTableAPI.jsx;
 
-// code when all was hardcoded:
-
-// return <>{cells && <LogbookTable columns={columns} data={data} />}</>;

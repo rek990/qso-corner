@@ -22,43 +22,7 @@ export default function QSOHistoryTableAPI({ notes, setNotes }) {
   const [id, setId] = useState(0);
   //const [notes, setNotes] = useState("");
   console.log(notes);
-
-  /*const getData = async () => {
-    const resp = await fetch("http://localhost:3000/qsoHistory");
-    const data = await resp.json();
-    const loadedQSOs = [];
-    for (const key in data) {
-      loadedQSOs.push({
-        id: key,
-        qsoNumber: data[key].qsoNumber,
-        qsoDate: data[key].qsoDate,
-        qsoTime: data[key].qsoTime,
-        band: data[key].band,
-        frequency: data[key].frequency,
-        mode: data[key].mode,
-        notes: data[key].notes,
-      });
-      console.log(data[key].notes);
-      
-    }
-    console.log(data);
-    //setCells(data);
-    console.log(loadedQSOs);
-    // console.log(loadedQSOs.notes);
-    setCells(loadedQSOs);
-    
-    
-    const addARow = () => {
-      setId(5);
-      setQsoNumber(6);
-      setQsoDate("2022-03-10");
-      setMeterBand("40m");
-      setFrequencyValues("7 MHz");
-      setModeNames("SSB");
-    };
-  };*/
   
-
 // the long way of doing the GET request and without async/await:
 
   /*const getData = () => {
@@ -94,10 +58,7 @@ export default function QSOHistoryTableAPI({ notes, setNotes }) {
     setCells(data);
     console.log(data);
     console.log(cells);
-    // console.log(loadedQSOs);
-    // console.log(loadedQSOs.notes);
-    // setCells(loadedQSOs);
-  };
+      };
 
 
   useEffect(() => {

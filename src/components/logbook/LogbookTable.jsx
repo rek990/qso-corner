@@ -119,11 +119,11 @@ const LogbookTable = ({ data, notes, setNotes }) => {
         minWidth: 30,
         width: 150,
         maxWidth: 200,
-        /*Cell: ({ cell }) => (
+        Cell: ({ cell }) => (
           <Button size="xs" borderRadius="6px" bg="#FE875D" color="white" onClick={onOpen}>
             Show Notes
           </Button>
-        ),*/
+        ),
       },
     ],
     [],

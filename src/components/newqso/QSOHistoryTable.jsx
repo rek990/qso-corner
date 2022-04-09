@@ -55,119 +55,27 @@ import {
 } from "react-table";
 import GlobalFilter from "../logbook/GlobalFilter";
 
-/*const newTableRow = [
-  {
-    id: 5,
-    qsoNumber: "6",
-    qsoDate: "2022-03-10",
-    qsoTime: "16:17",
-    band: "40m",
-    frequency: "7 MHz",
-    mode: "SSB",
-    notes: "notes 6",
-  },
-];*/
-
-const QSOHistoryTable = ({ data, notes, setNotes, renderedNotes, setRenderedNotes }) => {
+const QSOHistoryTable = ({
+  data,
+  notes,
+  setNotes,
+  renderedNotes,
+  setRenderedNotes,
+}) => {
   const { isOpen, onOpen, onClose } = useDisclosure();
-  console.log("notes", notes);
-  // setNotes("Where are you?");
-  console.log("notes", notes);
-  //console.log(data[key].notes);
   console.log("data", data);
   //console.log(data[0].notes);
   console.log(data.length);
-  
-  //let getNotes;
-  /*for (let i = 0; i < data.length; i++) {
-    getNotes = () => {
-      return data[i].notes;
-    }
-  }*/
-  let i = 0;
-  let textArea = [];
-  
-
-  const loadedQSOs = [];
-  let key;
-  let myNotes;
-  /*const getNotes = () => {
-    //onOpen();
-    /*for (let i = 0; i < data.length; i++) {
-      *///textArea.push(data[i].notes);
-    //return data[i].notes;
-  //return textArea;
-    
-    //return data[i].notes;
-    /*for (key in data) {
-      loadedQSOs.push({
-        id: key,
-        qsoNumber: data[key].qsoNumber,
-        qsoDate: data[key].qsoDate,
-        qsoTime: data[key].qsoTime,
-        band: data[key].band,
-        frequency: data[key].frequency,
-        mode: data[key].mode,
-        notes: data[key].notes,
-      });
-      console.log(data[key].notes);
-      myNotes = data[key].notes;
-      return myNotes;
-    }
-  
-}  
-    console.log(myNotes);*/
-
-  const dataNotes =  
-    data.map((datum, i) => {
-    
-    
-    console.log(datum.notes);  
+  let i;
+  const dataNotes = data.map((datum, i) => {
+    console.log(datum.notes);
     return datum.notes;
     let renderedNotes = [];
     renderedNotes.push(datum.notes);
     console.log(renderedNotes);
-    //return renderedNotes;
-    
-       
-      /*return(<>
-     
-      <Textarea
-      bg="#C8E0E9"
-      border="2px solid"
-      focusBorderColor="#FE875D"
-      borderColor="#356288"
-      placeholder="Add notes about QSO Contact here"
-      value={datum.notes}
-      />
-     </>);*/
-       
-     
-  
- 
-    })
-    
-   
-    
+  });
+
   console.log(dataNotes[i]);
-
-  /*const getDataNotes = dataNotes.forEach((x, index) => {
-    return (<>
-     
-      <Textarea
-      bg="#C8E0E9"
-      border="2px solid"
-      focusBorderColor="#FE875D"
-      borderColor="#356288"
-      placeholder="Add notes about QSO Contact here"
-      value={x}/>
-      
-     </>);
-  }); */
-  
-  
-    
-
 
   const columns = useMemo(
     () => [
@@ -221,13 +129,19 @@ const QSOHistoryTable = ({ data, notes, setNotes, renderedNotes, setRenderedNote
         width: 150,
         maxWidth: 200,
         Cell: ({ cell }) => (
-          <Button size="xs" borderRadius="6px" bg="#356288" color="white" onClick={onOpen}>
+          <Button
+            size="xs"
+            borderRadius="6px"
+            bg="#356288"
+            color="white"
+            onClick={onOpen}
+          >
             Add Notes
           </Button>
         ),
       },
     ],
-    [],
+    []
   );
   const {
     getTableProps,
@@ -257,30 +171,35 @@ const QSOHistoryTable = ({ data, notes, setNotes, renderedNotes, setRenderedNote
     useGlobalFilter,
     useSortBy,
     usePagination,
-    useRowSelect,
+    useRowSelect
   );
-  // console.log("notes", notes);
-  // const [testNotes, setTestNotes] = useState(renderedNotes);
-  // console.log("testNotes",testNotes);
-  /*const updateNotes = (event) => {
-    setTestNotes(event.target.value);
-  };*/
-  const [testNotes, setTestNotes] = useState("This is a test");
+
   return (
     <>
-      <Flex className="main-qso-history-table-container" direction="column" width="75vw">
+      <Flex
+        className="main-qso-history-table-container"
+        direction="column"
+        width="75vw"
+      >
         <Flex justifyContent="center">
           <GlobalFilter filter={globalFilter} setFilter={setGlobalFilter} />
         </Flex>
 
         <TableScrollbar>
-          <Table className="table" bg="#FE875D" variant="striped" {...getTableProps()}>
+          <Table
+            className="table"
+            bg="#FE875D"
+            variant="striped"
+            {...getTableProps()}
+          >
             <Thead>
               {headerGroups.map((headerGroup) => (
                 <Tr {...headerGroup.getHeaderGroupProps()}>
-                                  {headerGroup.headers.map((column) => (
+                  {headerGroup.headers.map((column) => (
                     // Add the sorting props to control sorting
-                    <Th {...column.getHeaderProps(column.getSortByToggleProps())}>
+                    <Th
+                      {...column.getHeaderProps(column.getSortByToggleProps())}
+                    >
                       {column.render("Header")}
                       {/* Add a sort direction indicator */}
                       <chakra.span pl="1">
@@ -296,39 +215,44 @@ const QSOHistoryTable = ({ data, notes, setNotes, renderedNotes, setRenderedNote
                   ))}
                 </Tr>
               ))}
-            <FormControl>
-              <Modal isOpen={isOpen} onClose={onClose}>         
-    <ModalOverlay />
-    <ModalContent bg="#356288">
-      <ModalHeader color="#AACFDD">QSO Notes</ModalHeader>
-      <ModalBody>
-      {dataNotes.map((key, index) => {
-        
-        return(
-         <>
-         
-        
-          <Textarea
-      bg="#C8E0E9"
-      border="2px solid"
-      focusBorderColor="#FE875D"
-      borderColor="#356288"
-      placeholder="Add notes about QSO Contact here"
-      value={key}
-      /></>);})}
-        {/*onChange={(event) => setNotes(event.target.value)}*/}
-      </ModalBody>
-      <ModalFooter>
-        {/*<Button borderRadius="6px" bg="#FE875D" color="white" mr={3}>
+              <FormControl>
+                <Modal isOpen={isOpen} onClose={onClose}>
+                  <ModalOverlay />
+                  <ModalContent bg="#356288">
+                    <ModalHeader color="#AACFDD">QSO Notes</ModalHeader>
+                    <ModalBody>
+                      {dataNotes.map((key, index) => {
+                        return (
+                          <>
+                            <Textarea
+                              bg="#C8E0E9"
+                              border="2px solid"
+                              focusBorderColor="#FE875D"
+                              borderColor="#356288"
+                              placeholder="Add notes about QSO Contact here"
+                              value={key}
+                            />
+                          </>
+                        );
+                      })}
+                      {/*onChange={(event) => setNotes(event.target.value)}*/}
+                    </ModalBody>
+                    <ModalFooter>
+                      {/*<Button borderRadius="6px" bg="#FE875D" color="white" mr={3}>
           Save Note
           </Button>*/}
-        <Button borderRadius="6px" bg="#FE875D" color="white" onClick={onClose}>
-          Close
-        </Button>
-      </ModalFooter>
-    </ModalContent>
-    </Modal>
-  </FormControl>          
+                      <Button
+                        borderRadius="6px"
+                        bg="#FE875D"
+                        color="white"
+                        onClick={onClose}
+                      >
+                        Close
+                      </Button>
+                    </ModalFooter>
+                  </ModalContent>
+                </Modal>
+              </FormControl>
             </Thead>
             <Tbody {...getTableBodyProps()}>
               {page.map((row, i) => {
@@ -336,7 +260,9 @@ const QSOHistoryTable = ({ data, notes, setNotes, renderedNotes, setRenderedNote
                 return (
                   <Tr {...row.getRowProps()}>
                     {row.cells.map((cell) => {
-                      return <Td {...cell.getCellProps()}>{cell.render("Cell")}</Td>;
+                      return (
+                        <Td {...cell.getCellProps()}>{cell.render("Cell")}</Td>
+                      );
                     })}
                   </Tr>
                 );
@@ -454,4 +380,3 @@ const QSOHistoryTable = ({ data, notes, setNotes, renderedNotes, setRenderedNote
 };
 
 export default QSOHistoryTable;
-

@@ -74,18 +74,8 @@ const LogQSOContainer = ({ notes, setNotes, setCells, renderedNotes, setRendered
   const [operatorName, setOperatorName] = useState("");
   const [country, setCountry] = useState("");
   const [id, setId] = useState(0);
-  //const [renderedNotes, setRenderedNotes] = useState("");
-
-  const addARow = () => {
-    setId(5);
-    setQsoNumber(6);
-    setQsoDate("2022-03-10");
-    setMeterBand("40m");
-    setFrequencyValues("7 MHz");
-    setModeNames("SSB");
-  };
-
-  /*const getData = useCallback(async () => {
+  
+    /*const getData = useCallback(async () => {
     const resp = await fetch("http://localhost:3000/qsoHistory");
     const data = await resp.json();
     const loadedQSOs = [];
@@ -103,14 +93,6 @@ const LogQSOContainer = ({ notes, setNotes, setCells, renderedNotes, setRendered
     }
     console.log(data);
     //setCells(data);
-    const addARow = () => {
-      setId(5);
-      setQsoNumber(6);
-      setQsoDate("2022-03-10");
-      setMeterBand("40m");
-      setFrequencyValues("7 MHz");
-      setModeNames("SSB");
-    };
     setCells(loadedQSOs);
   });*/
 
@@ -176,9 +158,6 @@ const LogQSOContainer = ({ notes, setNotes, setCells, renderedNotes, setRendered
     setFrequencyValues("");
   };
 
-  // console.log("meterBand", meterBand);
-  // console.log("modeNames", modeNames);
-  // console.log("frequencyValues", frequencyValues);
   return (
     <>
       <Grid

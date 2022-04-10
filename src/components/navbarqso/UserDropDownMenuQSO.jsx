@@ -1,5 +1,5 @@
 import React from "react";
-import { Menu, MenuButton, Button, MenuList, MenuItem, MenuDivider, Flex } from "@chakra-ui/react";
+import { Menu, MenuButton, Button, MenuList, MenuItem, MenuDivider } from "@chakra-ui/react";
 import { ChevronDownIcon } from "@chakra-ui/icons";
 
 const UserDropdownMenu = (props) => {

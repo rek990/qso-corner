@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Box, Flex, Image, chakra } from "@chakra-ui/react";
+import { Flex, Image, chakra } from "@chakra-ui/react";
 //import "./App.css"; // most likely to be removed to style with Chakra UI instead
 // import LoginFormQSO from "../src/components/authentication/LoginFormQSO";
 import NavBarContainerQSO from "./components/navbarqso/NavBarContainerQSO";

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Grid, GridItem, Heading, Flex, Spacer, VStack } from "@chakra-ui/react";
+import { Grid, GridItem, Heading, Flex, VStack } from "@chakra-ui/react";
 import LogQSOContainer from "./LogQSOContainer";
 import QSOHistoryContainer from "./QSOHistoryContainer";
 import QRZAPIContainer from "./QRZAPIContainer";

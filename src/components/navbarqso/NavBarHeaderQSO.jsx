@@ -8,7 +8,6 @@ const NavBarHeaderQSO = () => {
         fontStyle="normal"
         fontSize="25px"
         fontWeight="bold"
-        display="flex"
         color="#FE1100"
         size="md"
         paddingLeft="0.5em"

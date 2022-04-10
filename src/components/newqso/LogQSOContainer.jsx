@@ -2,15 +2,10 @@ import React, { useState, useCallback } from "react";
 import {
   Grid,
   GridItem,
-  Header,
-  VStack,
-  HStack,
-  Flex,
   Input,
   Select,
   Textarea,
   Button,
-  Spacer,
 } from "@chakra-ui/react";
 //import "../constants.jsx";
 
@@ -60,7 +55,13 @@ const FREQUENCY = [
   { id: 12, frequency: "420 MHz" },
 ];
 
-const LogQSOContainer = ({ notes, setNotes, setCells, renderedNotes, setRenderedNotes }) => {
+const LogQSOContainer = ({
+  notes,
+  setNotes,
+  setCells,
+  renderedNotes,
+  setRenderedNotes,
+}) => {
   let [qsoNumber, setQsoNumber] = useState(6);
   const [callSign, setCallSign] = useState("");
   const [qsoDate, setQsoDate] = useState("");
@@ -74,8 +75,8 @@ const LogQSOContainer = ({ notes, setNotes, setCells, renderedNotes, setRendered
   const [operatorName, setOperatorName] = useState("");
   const [country, setCountry] = useState("");
   const [id, setId] = useState(0);
-  
-    /*const getData = useCallback(async () => {
+
+  /*const getData = useCallback(async () => {
     const resp = await fetch("http://localhost:3000/qsoHistory");
     const data = await resp.json();
     const loadedQSOs = [];
@@ -359,19 +360,18 @@ const LogQSOContainer = ({ notes, setNotes, setCells, renderedNotes, setRendered
           ></Textarea>
         </GridItem>
         <GridItem id="submit-button" colStart={4} colEnd={4}>
-          <HStack>
-            <Button
-              id="submit-new-qso"
-              type="submit"
-              size="sm"
-              bg="#FE875D"
-              color="white"
-              float="right"
-              onClick={handleSubmit}
-            >
-              Submit
-            </Button>
-            {/*<Button
+          <Button
+            id="submit-new-qso"
+            type="submit"
+            size="sm"
+            bg="#FE875D"
+            color="white"
+            float="right"
+            onClick={handleSubmit}
+          >
+            Submit
+          </Button>
+          {/*<Button
               id="update-qso-history-table"
               size="sm"
               bg="#FE875D"
@@ -381,7 +381,6 @@ const LogQSOContainer = ({ notes, setNotes, setCells, renderedNotes, setRendered
             >
               Update Table
             </Button>*/}
-          </HStack>
         </GridItem>
       </Grid>
     </>

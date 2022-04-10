@@ -1,5 +1,5 @@
 import React from "react";
-import { HStack, Flex, Spacer } from "@chakra-ui/react";
+import { Flex, Spacer } from "@chakra-ui/react";
 import NavBarHeaderQSO from "./NavBarHeaderQSO";
 import NavBarLinksMenuQSO from "./NavBarLinksMenuQSO";
 import UserDropdownMenuQSO from "./UserDropDownMenuQSO";
@@ -16,7 +16,6 @@ const NavBarContainerQSO = () => {
         top="0vh"
         bg="#AACFDD"
         style={{ boxShadow: "0px 4px 4px rgba(0, 0, 0, 0.25)" }}
-        flexWrap="wrap"
         margin="auto"
         zIndex={1}
       >

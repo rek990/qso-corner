@@ -12,15 +12,27 @@ const QRZAPIContainer = () => {
     console.log(`error ${err}`);
   });*/
   const [jsonPlaceholderData, setJsonPlaceholderData] = useState({});
+  const [dataName, setDataName] = useState({});
+  const [dataSuite, setDataSuite] = useState({});
+  const [dataStreet, setDataStreet] = useState({});
+  const [dataCity, setDataCity] = useState({});
+  const [dataZip, setDataZip] = useState({});
+  const [dataGeo, setDataGeo] = useState({});
 
   const jsonPlaceholder = 'https://jsonplaceholder.typicode.com/users';
 
   const getJSONPlaceholderData = () => {
     fetch(jsonPlaceholder)
     .then(response => response.json())
-    .then(data => 
+    .then(data => {
       setJsonPlaceholderData(data)
-      )
+      setDataName(jsonPlaceholderData[0].name)
+      setDataSuite(jsonPlaceholderData[0].address.suite)
+      setDataStreet(jsonPlaceholderData[0].address.street)
+      setDataCity(jsonPlaceholderData[0].address.city)
+      setDataZip(jsonPlaceholderData[0].address.zipcode)
+      setDataGeo(jsonPlaceholderData[0].address.geo)
+    })
     .catch((err) => {
       console.log(`error ${err}`);
     })
@@ -30,15 +42,26 @@ const QRZAPIContainer = () => {
     getJSONPlaceholderData();
   }, []);
   console.log(jsonPlaceholderData);
+  console.log(dataName);
+  console.log(dataSuite);
+  console.log(dataStreet);
+  console.log(dataCity);
+  console.log(dataZip);
+  console.log(dataGeo);
 
-  /*for (let i = 0; i < jsonPlaceholderData.length; i++) {
-    console.log(jsonPlaceholder[i]);
+  /*const getData = () => {
+    for (let i = 0; i < jsonPlaceholderData.length; i++) {
+      console.log(jsonPlaceholderData[i].name);
+      setJsonPlaceholderData(jsonPlaceholderData[i].name);
+      return jsonPlaceholderData;
+    }
   }*/
- 
+
   return (
     <>
       <Box boxSizing="border-box" paddingTop="3%" paddingLeft="5%" float="left">
       <Heading size="lg"></Heading>
+       
         <Text></Text>
         <Text></Text>
         <Text></Text>

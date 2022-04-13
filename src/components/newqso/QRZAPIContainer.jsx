@@ -31,12 +31,18 @@ const QRZAPIContainer = () => {
       setDataStreet(jsonPlaceholderData[0].address.street)
       setDataCity(jsonPlaceholderData[0].address.city)
       setDataZip(jsonPlaceholderData[0].address.zipcode)
-      setDataGeo(jsonPlaceholderData[0].address.geo)
+      //setDataGeo(jsonPlaceholderData[0].address.geo)
+      
+      /*data.forEach(obj => {
+        Object.entries(obj).forEach(([key, value]) => {
+          console.log(`${key}: ${value}`);
+        });
+      });*/
     })
     .catch((err) => {
       console.log(`error ${err}`);
     })
-  }
+  } 
 
   useEffect(() => {
     getJSONPlaceholderData();
@@ -47,7 +53,7 @@ const QRZAPIContainer = () => {
   console.log(dataStreet);
   console.log(dataCity);
   console.log(dataZip);
-  console.log(dataGeo);
+  //console.log(dataGeo);
 
   /*const getData = () => {
     for (let i = 0; i < jsonPlaceholderData.length; i++) {
@@ -60,10 +66,11 @@ const QRZAPIContainer = () => {
   return (
     <>
       <Box boxSizing="border-box" paddingTop="3%" paddingLeft="5%" float="left">
-      <Heading size="lg"></Heading>
+      
        
-        <Text></Text>
-        <Text></Text>
+     <Heading size="lg">{dataName}</Heading>
+        <Text>{dataStreet}</Text>
+        <Text>{dataCity} {dataZip}</Text>
         <Text></Text>
         {/*<Heading size="lg">John Doe</Heading>
         <Text>123 Main Street</Text>

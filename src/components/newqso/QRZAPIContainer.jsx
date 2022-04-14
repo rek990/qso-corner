@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from "react";
+import React, { useState, useEffect } from "react";
 import { Heading, Text, Flex, HStack, VStack, Box } from "@chakra-ui/react";
 import { ArrowUpIcon } from "@chakra-ui/icons";
 
@@ -19,40 +19,39 @@ const QRZAPIContainer = () => {
   const [dataZip, setDataZip] = useState({});
   const [dataGeo, setDataGeo] = useState({});
 
-  const jsonPlaceholder = 'https://jsonplaceholder.typicode.com/users';
+  const jsonPlaceholder = "https://jsonplaceholder.typicode.com/users";
 
   const getJSONPlaceholderData = () => {
     fetch(jsonPlaceholder)
-    .then(response => response.json())
-    .then(data => {
-      setJsonPlaceholderData(data)
-      setDataName(jsonPlaceholderData[0].name)
-      setDataSuite(jsonPlaceholderData[0].address.suite)
-      setDataStreet(jsonPlaceholderData[0].address.street)
-      setDataCity(jsonPlaceholderData[0].address.city)
-      setDataZip(jsonPlaceholderData[0].address.zipcode)
-      //setDataGeo(jsonPlaceholderData[0].address.geo)
-      
-      /*data.forEach(obj => {
+      .then((response) => response.json())
+      .then((data) => {
+        setJsonPlaceholderData(data);
+        setDataSuite(jsonPlaceholderData[0].address.suite);
+        setDataStreet(jsonPlaceholderData[0].address.street);
+        setDataCity(jsonPlaceholderData[0].address.city);
+        setDataZip(jsonPlaceholderData[0].address.zipcode);
+        setDataGeo(jsonPlaceholderData[0].address.geo);
+
+        /*data.forEach(obj => {
         Object.entries(obj).forEach(([key, value]) => {
           console.log(`${key}: ${value}`);
         });
       });*/
-    })
-    .catch((err) => {
-      console.log(`error ${err}`);
-    })
-  } 
+      })
+      .catch((err) => {
+        console.log(`error ${err}`);
+      });
+  };
 
   useEffect(() => {
     getJSONPlaceholderData();
   }, []);
   console.log(jsonPlaceholderData);
-  console.log(dataName);
-  console.log(dataSuite);
-  console.log(dataStreet);
-  console.log(dataCity);
-  console.log(dataZip);
+  //console.log(dataName);
+  //console.log(dataSuite);
+  //console.log(dataStreet);
+  //console.log(dataCity);
+  //console.log(dataZip);
   //console.log(dataGeo);
 
   /*const getData = () => {
@@ -66,18 +65,25 @@ const QRZAPIContainer = () => {
   return (
     <>
       <Box boxSizing="border-box" paddingTop="3%" paddingLeft="5%" float="left">
-      
-       
-     <Heading size="lg">{dataName}</Heading>
-        <Text>{dataStreet}</Text>
-        <Text>{dataCity} {dataZip}</Text>
-        <Text></Text>
+        {jsonPlaceholderData.map((data, key) => {
+          return (
+            <>
+        <Heading size="lg" key={key}>{data.name}</Heading>
+        <Text key={key}>{data.address.street}</Text>
+        <Text key={key}>{data.address.street}</Text>
+        <Text key={key}>{data.address.city} {data.address.zipcode}</Text>
+        </>);})}
         {/*<Heading size="lg">John Doe</Heading>
         <Text>123 Main Street</Text>
         <Text>Anytown, GA 12345</Text>
         <Text>United States of America</Text>*/}
       </Box>
-      <Box boxSizing="border-box" paddingTop="3%" paddingRight="5%" float="right">
+      <Box
+        boxSizing="border-box"
+        paddingTop="3%"
+        paddingRight="5%"
+        float="right"
+      >
         <Heading size="sm">General Class</Heading>
       </Box>
     </>

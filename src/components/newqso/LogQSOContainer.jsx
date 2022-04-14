@@ -1,4 +1,4 @@
-import React, { useState, useCallback } from "react";
+import React, { useState, useCallback, useEffect } from "react";
 import {
   Grid,
   GridItem,
@@ -75,6 +75,7 @@ const LogQSOContainer = ({
   const [operatorName, setOperatorName] = useState("");
   const [country, setCountry] = useState("");
   const [id, setId] = useState(0);
+  const [qsoData, setQsoData] = useState([]);
 
   /*const getData = useCallback(async () => {
     const resp = await fetch("http://localhost:3000/qsoHistory");
@@ -128,6 +129,7 @@ const LogQSOContainer = ({
     });
     const data = await response.json();
     console.log(data);
+    setQsoData(qsoDataPerContact);
     /*.then((response) => response.json())
       .then((qsoDataPerContact) => {
       console.log(qsoDataPerContact);*/
@@ -159,6 +161,10 @@ const LogQSOContainer = ({
     setFrequencyValues("");
   };
 
+  useEffect(() => {
+    handleSubmit();
+  }, []);
+  console.log(qsoData);
   return (
     <>
       <Grid

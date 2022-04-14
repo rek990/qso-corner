@@ -64,6 +64,17 @@
       "mode": "FM",
       "band": "2m",
       "notes": "notes 5"
+    },
+    {
+      "callSign": "KO4ABC",
+      "qsoDate": "2022-04-14",
+      "qsoTime": "20:39",
+      "band": "40m",
+      "mode": "SSB",
+      "frequency": "7 MHz",
+      "notes": "Test",
+      "qsoNumber": 6,
+      "id": 5
     }
   ]
 }

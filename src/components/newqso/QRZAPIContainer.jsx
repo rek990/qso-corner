@@ -11,7 +11,7 @@ const QRZAPIContainer = () => {
   .catch((err) => {
     console.log(`error ${err}`);
   });*/
-  const [jsonPlaceholderData, setJsonPlaceholderData] = useState({});
+  const [jsonPlaceholderData, setJsonPlaceholderData] = useState([]);
   const [dataName, setDataName] = useState({});
   const [dataSuite, setDataSuite] = useState({});
   const [dataStreet, setDataStreet] = useState({});
@@ -26,11 +26,11 @@ const QRZAPIContainer = () => {
       .then((response) => response.json())
       .then((data) => {
         setJsonPlaceholderData(data);
-        setDataSuite(jsonPlaceholderData[0].address.suite);
-        setDataStreet(jsonPlaceholderData[0].address.street);
-        setDataCity(jsonPlaceholderData[0].address.city);
-        setDataZip(jsonPlaceholderData[0].address.zipcode);
-        setDataGeo(jsonPlaceholderData[0].address.geo);
+        //setDataSuite(jsonPlaceholderData[0].address.suite);
+        //setDataStreet(jsonPlaceholderData[0].address.street);
+        //setDataCity(jsonPlaceholderData[0].address.city);
+        //setDataZip(jsonPlaceholderData[0].address.zipcode);
+        //setDataGeo(jsonPlaceholderData[0].address.geo);
 
         /*data.forEach(obj => {
         Object.entries(obj).forEach(([key, value]) => {

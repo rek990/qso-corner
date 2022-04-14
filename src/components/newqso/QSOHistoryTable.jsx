@@ -75,7 +75,7 @@ const QSOHistoryTable = ({
     console.log(renderedNotes);
   });
 
-  console.log(dataNotes[i]);
+  console.log(dataNotes);
 
   const columns = useMemo(
     () => [
@@ -220,9 +220,13 @@ const QSOHistoryTable = ({
                   <ModalOverlay />
                   <ModalContent bg="#356288">
                     <ModalHeader color="#AACFDD">QSO Notes</ModalHeader>
+                  
                     <ModalBody>
                       {dataNotes.map((key, index) => {
                         return (
+                          <>
+                          {dataNotes.map((x, i) => {
+                      return (
                           <>
                             <Textarea
                               bg="#C8E0E9"
@@ -233,10 +237,16 @@ const QSOHistoryTable = ({
                               value={key}
                             />
                           </>
+                          );
+                    }
+                    )
+                    }
+                    </>
                         );
                       })}
                       {/*onChange={(event) => setNotes(event.target.value)}*/}
                     </ModalBody>
+                    
                     <ModalFooter>
                       {/*<Button borderRadius="6px" bg="#FE875D" color="white" mr={3}>
           Save Note
